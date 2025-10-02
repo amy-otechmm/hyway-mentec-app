@@ -8,13 +8,13 @@ const HeroSection = () => {
 		<main className={styles.heroContainer}>
 			<div className={styles.glassBox}>
 				<div className={styles.header}>
-					<Image
+					{/* <Image
 						src='/logo.png' // Path to your logo in the public folder
 						alt='Highway Mentech Logo'
 						width={50}
 						height={50}
 						className={styles.logo}
-					/>
+					/> */}
 					<h1 className={styles.companyName}>ハイウェイメンテック株式会社</h1>
 				</div>
 				<p className={styles.description}>
