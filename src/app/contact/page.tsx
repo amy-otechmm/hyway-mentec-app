@@ -1,14 +1,13 @@
 /** @format */
 
-import Image from 'next/image';
-import styles from './page.module.css';
 import MainLayout from '@/layout/main-layout';
 import HeroSection from '@/components/features/hero-section';
+import ContactForm from '@/components/features/contact';
 
 export default function Home() {
 	return (
 		<MainLayout>
-			<HeroSection />
+			<ContactForm />
 		</MainLayout>
 	);
 }

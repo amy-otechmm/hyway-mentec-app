@@ -1,0 +1,27 @@
+.dotGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 20px);
+	gap: 15px;
+	position: absolute;
+	z-index: 1;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	background-color: #00a8e6;
+	border-radius: 50%;
+	opacity: 0.8;
+}
+
+.rightDots {
+	grid-template-rows: repeat(3, 20px);
+	top: 150px;
+	right: 50px;
+}
+
+.leftDots {
+	grid-template-rows: repeat(4, 20px);
+	bottom: 100px;
+	left: 50px;
+}
