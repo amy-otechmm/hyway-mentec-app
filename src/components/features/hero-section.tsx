@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './hero-section.module.scss'; // Import the SCSS module
 import { useRef } from 'react';
 import DotGrid from '../ui-accessory/ui-accessory';
+import { IconDotsGrid, IconStart } from '../icons/icons';
 
 const HeroSection = () => {
 	const contentRef = useRef<HTMLDivElement>(null); // Ref for scrolling
@@ -19,7 +20,7 @@ const HeroSection = () => {
 			<section className={styles.landingContainer}>
 				<div className={styles.glassBox}>
 					<div className={styles.header}>
-						<Image src='/logo.png' alt='Logo' width={50} height={50} className={styles.logo} />
+						<Image src='/images/common/LOGO.png' alt='Logo' width={100} height={100} className={styles.logo} />
 						<h1 className={styles.landingCompanyName}>ハイウェイメンテック株式会社</h1>
 					</div>
 					<p className={styles.landingDescription}>
@@ -31,15 +32,18 @@ const HeroSection = () => {
 				</div>
 			</section>
 			<section className={styles.bridgeContainer} ref={contentRef}>
-				<DotGrid className={styles.rightDots} rows={3} cols={2} />
-				<DotGrid className={styles.leftDots} rows={4} cols={2} />
+				{/* <DotGrid className={styles.rightDots} rows={3} cols={2} />
+				<DotGrid className={styles.leftDots} rows={4} cols={2} /> */}
+				<IconDotsGrid className={styles.right_dots} />
+				{/* <IconDotsGrid className={styles.left_dots} /> */}
 				<div className={styles.bridgeContent}>
-					<p>ハイウェイメンテックは</p>
+					<p className={styles.bridgeLogo}>ハイウェイメンテックは</p>
 					<h1 className={styles.bridgeTitle}>
 						橋梁建設、高速道路保守、
 						<br />
 						足場ソリューションにおける信頼さるパートナーです。
 					</h1>
+					<div className={styles.break_line} />
 					<p className={styles.bridgeSubtitle}>
 						長年の専門知識を活かし、安全第一の実践、最新技術、そして熟練の職人技を融合させ、長期にわたるプロジェクトを実施します。
 					</p>
@@ -48,50 +52,54 @@ const HeroSection = () => {
 			<section className={styles.whatWeDoContainer}>
 				<div className={styles.whatWeDoContent}>
 					<div className={styles.whatWeDoSubheading}>
-						<span className={styles.icon}>⚙️</span>
+						<IconStart className={styles.icon_star} />
 						What We Do
 					</div>
 					<h2 className={styles.whatWeDoHeading}>私たちの目標は何ですか？</h2>
 				</div>
-			</section>
-			<section className={styles.servicesContainer}>
 				<div className={styles.servicesLayout}>
 					<div className={styles.servicesCard}>
-						{/* Service Item 1 */}
-						<div className={styles.serviceItem}>
-							<h3 className={styles.serviceTitle}>橋梁建設・維持管理</h3>
-							<p className={styles.serviceDescription}>
-								新設橋梁から既存橋梁まで、耐久性に優れた高水準のソリューションをご提供します。
-							</p>
-						</div>
+						<div>
+							{/* Service Item 1 */}
+							<div className={styles.serviceItem}>
+								<h3 className={styles.serviceTitle}>橋梁建設・維持管理</h3>
+								<p className={styles.serviceDescription}>
+									新設橋梁から既存橋梁まで、耐久性に優れた高水準のソリューションをご提供します。
+								</p>
+							</div>
 
-						{/* Service Item 2 */}
-						<div className={styles.serviceItem}>
-							<h3 className={styles.serviceTitle}>足場ソリューション</h3>
-							<p className={styles.serviceDescription}>
-								大規模建設プロジェクトに対応した、安全でカスタマイズ可能な足場をご用意しております。
-							</p>
-						</div>
+							{/* Service Item 2 */}
+							<div className={styles.serviceItem}>
+								<h3 className={styles.serviceTitle}>足場ソリューション</h3>
+								<p className={styles.serviceDescription}>
+									大規模建設プロジェクトに対応した、安全でカスタマイズ可能な足場をご用意しております。
+								</p>
+							</div>
 
-						{/* Service Item 3 */}
-						<div className={styles.serviceItem}>
-							<h3 className={styles.serviceTitle}>高速道路の補修・安全対策</h3>
-							<p className={styles.serviceDescription}>
-								高速道路を常に安全・強固・効率的に保つための補修・安全対策を実施いたします。
-							</p>
-						</div>
+							{/* Service Item 3 */}
+							<div className={styles.serviceItem}>
+								<h3 className={styles.serviceTitle}>高速道路の補修・安全対策</h3>
+								<p className={styles.serviceDescription}>
+									高速道路を常に安全・強固・効率的に保つための補修・安全対策を実施いたします。
+								</p>
+							</div>
 
-						{/* Service Item 4 */}
-						<div className={styles.serviceItem}>
-							<h3 className={styles.serviceTitle}>コンサルティング・プロジェクト管理</h3>
-							<p className={styles.serviceDescription}>
-								企画立案から監督、完成まで、一貫した専門的なサポートをご提供いたします。
-							</p>
+							{/* Service Item 4 */}
+							<div className={styles.serviceItem}>
+								<h3 className={styles.serviceTitle}>コンサルティング・プロジェクト管理</h3>
+								<p className={styles.serviceDescription}>
+									企画立案から監督、完成まで、一貫した専門的なサポートをご提供いたします。
+								</p>
+							</div>
 						</div>
 					</div>
-					<div className={styles.verticalText}>高品質な建設ソリューションのご案内</div>
+					<div className={styles.verticalTextContainer}>
+						<div className={styles.verticalText}>建設ソリューションのご案内</div>
+						<div className={styles.verticalText}>高品質な</div>
+					</div>
 				</div>
 			</section>
+
 			<section className={styles.galleryContainer}>
 				<div className={styles.galleryGrid}>
 					{/* Each div below is a grid area for an image */}

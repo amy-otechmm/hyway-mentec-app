@@ -3,7 +3,7 @@
 // app/about/page.tsx
 
 import Image from 'next/image';
-import styles from './about-us.module.scss';
+import styles from './service.module.scss';
 import { IconDelivery } from '../icons/icons';
 import Card from '../ui-accessory/card';
 
