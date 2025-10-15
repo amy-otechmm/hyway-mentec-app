@@ -1,14 +1,9 @@
 /** @format */
+'use client';
 
-import Image from 'next/image';
-import styles from './page.module.css';
 import MainLayout from '@/layout/main-layout';
 import HeroSection from '@/components/features/hero-section';
 
-export default function Home() {
-	return (
-		<MainLayout>
-			<HeroSection />
-		</MainLayout>
-	);
+export default function HeroPage() {
+  return <HeroSection />;
 }

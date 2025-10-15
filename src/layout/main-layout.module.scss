@@ -5,28 +5,36 @@
  */
 
 .navWrapper {
-	position: absolute; /* Sits on top of the content below it */
-	top: 0;
-	left: 0;
-	width: 99%;
-	padding: 0.8rem 2rem; /* More padding on the sides */
-	margin: 7px;
-	z-index: 10; /* Ensures it's above other elements */
-	border-radius: 9px;
+  position: fixed;
+  /* Sits on top of the content below it */
+  top: 0;
+  left: 0;
+  width: 99%;
+  padding: 0.8rem 2rem;
+  /* More padding on the sides */
+  margin: 7px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  border-radius: 9px;
 
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-	/* Subtle gradient for the background */
-	background: #c5e7ff;
-	background: linear-gradient(90deg, rgba(197, 231, 255, 1) 0%, rgba(92, 151, 255, 1) 50%, rgba(196, 231, 255, 1) 100%);
+  /* Subtle gradient for the background */
+  background: #c5e7ff;
+  background: linear-gradient(90deg,
+      rgba(197, 231, 255, 1) 0%,
+      rgba(92, 151, 255, 1) 50%,
+      rgba(196, 231, 255, 1) 100%);
 }
 
+
+
 .companyName {
-	font-size: 1.3rem;
-	font-weight: bold;
-	color: var(--primary-foreground);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-foreground);
 
   display: flex;
   align-items: center;
@@ -34,25 +42,27 @@
 }
 
 .navList {
-	display: flex;
-	gap: 1rem;
-	list-style: none; /* Removes bullet points */
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  /* Removes bullet points */
 }
 
 .navItem a {
-	color: var(--primary-foreground);
-	text-decoration: none;
-	font-size: 1rem;
+  color: var(--primary-foreground);
+  text-decoration: none;
+  font-size: 1rem;
   font-weight: bold;
-	padding: 0.5rem 1.5rem;
-	border-radius: 999px; /* Creates the pill shape */
-	background-color: rgba(255, 255, 255, 0.2);
-	border: 1px solid rgba(255, 255, 255, 0.4);
-	transition: background-color 0.3s ease;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  /* Creates the pill shape */
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background-color 0.3s ease;
 
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.4);
-	}
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 }
 
 ///Footer Styles///
@@ -60,166 +70,173 @@
 /// /* app/components/Footer/Footer.module.scss */
 
 .footer {
-	color: #333;
-	background-color: #f5f5f0; /* Light beige background for the bottom part */
+  color: #333;
+  background-color: #f5f5f0;
+  /* Light beige background for the bottom part */
 }
 
 /* ========================================
   1. Top Contact Section
 ======================================== */
 .topSection {
-	background-color: #0d2c4f; /* Solid blue */
-	position: relative;
-	overflow: hidden;
+  background-color: #0d2c4f;
+  /* Solid blue */
+  position: relative;
+  overflow: hidden;
 }
 
 /* This pseudo-element creates the curved background image */
 .topSection::before {
-	content: '';
-	position: absolute;
-	top: -50%;
-	left: -20%;
-	width: 140%;
-	height: 200%;
-	border-radius: 50%;
-	background-image: linear-gradient(rgba(13, 44, 79, 0.8), rgba(13, 44, 79, 0.8)), url('/images/common/footer-pg-1.png');
-	background-size: cover;
-	background-position: center;
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  border-radius: 50%;
+  background-image: linear-gradient(rgba(13, 44, 79, 0.8),
+      rgba(13, 44, 79, 0.8)),
+    url('/images/common/footer-pg-1.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .topContent {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 6rem 2rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-	z-index: 2;
-	color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
 }
 
 .contactInfo {
-	max-width: 500px;
+  max-width: 500px;
 }
 
 .contactTitle {
-	font-size: 4rem;
-	font-weight: bold;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .contactSubtitle {
-	font-size: 1.25rem;
-	margin-top: -0.5rem;
-	margin-bottom: 2rem;
-	color: #e0e0e0;
+  font-size: 1.25rem;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
 }
 
 .contactDescription {
-	font-size: 1rem;
-	line-height: 1.7;
-	max-width: 400px;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 400px;
 }
 
 .contactButton {
-	width: 180px;
-	height: 180px;
-	border-radius: 50%;
-	background: rgba(0, 172, 230, 0.6);
-	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.3rem;
-	cursor: pointer;
-	transition: transform 0.3s ease, background 0.3s ease;
-	flex-shrink: 0; /* Prevents the button from shrinking */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(0, 172, 230, 0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+  /* Prevents the button from shrinking */
 
-	&:hover {
-		transform: scale(1.05);
-		background: rgba(0, 172, 230, 0.8);
-	}
+  &:hover {
+    transform: scale(1.05);
+    background: rgba(0, 172, 230, 0.8);
+  }
 }
 
 .arrow {
-	margin-left: 10px;
-	font-weight: bold;
-	font-size: 2rem;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 /* ========================================
   2. Middle Info Section
 ======================================== */
 .middleSection {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 4rem 2rem;
-	display: flex;
-	justify-content: space-between;
-	gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
 }
 
 .quickLinks h3,
 .addressInfo h3 {
-	font-size: 1.25rem;
-	margin-bottom: 1.5rem;
-	font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 .linksList {
-	list-style: none;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .linksList a {
-	text-decoration: none;
-	color: #333;
-	&:hover {
-		color: #00a8e6;
-	}
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    color: #00a8e6;
+  }
 }
 
 .addressList {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .addressItem {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .addressIcon {
-	color: #00a8e6;
-	font-size: 1.5rem;
-	flex-shrink: 0;
+  color: #00a8e6;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 /* ========================================
   3. Bottom Copyright Section
 ======================================== */
 .bottomSection {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
-	border-top: 1px solid #e0e0e0;
-	font-size: 0.9rem;
-	color: #555;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .bottomSection a {
-	text-decoration: none;
-	color: #555;
-	margin: 0 0.5rem;
-	&:hover {
-		color: #00a8e6;
-	}
+  text-decoration: none;
+  color: #555;
+  margin: 0 0.5rem;
+
+  &:hover {
+    color: #00a8e6;
+  }
 }
 
 /* ========================================
@@ -227,20 +244,20 @@
 ======================================== */
 
 .menu ul {
-	list-style: none;
-	padding: 0;
-	border-left: 2px solid rgba(255, 255, 255, 0.3);
+  list-style: none;
+  padding: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .menu li a {
-	display: block;
-	padding: 0.75rem 1.5rem;
-	color: #e0e0e0;
-	text-decoration: none;
-	transition: background-color 0.2s ease, color 0.2s ease;
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.1);
-		color: white;
-	}
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
 }

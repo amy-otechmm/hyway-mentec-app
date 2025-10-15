@@ -1,4 +1,6 @@
 /** @format */
+"use client";
+
 
 import Footer from './footer';
 import NavBar from './header';

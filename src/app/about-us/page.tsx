@@ -6,10 +6,6 @@ import MainLayout from '@/layout/main-layout';
 import HeroSection from '@/components/features/hero-section';
 import AboutPage from '@/components/features/about-us';
 
-export default function Home() {
-	return (
-		<MainLayout>
-			<AboutPage />
-		</MainLayout>
-	);
+export default function About() {
+  return <AboutPage />;
 }

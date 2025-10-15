@@ -1,32 +1,37 @@
 /** @format */
 
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.scss';
-
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
-	subsets: ['latin'],
-});
+import type { Metadata } from 'next';
+import MainLayout from '@/layout/main-layout';
+import { Suspense } from 'react';
+import LenisProvider from '@/stores/lenis-provider';
 
 export const metadata: Metadata = {
-	title: 'Hyway Mentec Inc.',
-	description: 'Advanced construction solutions.',
+  title: 'Hyway Mentec Inc.',
+  description: 'Advanced construction solutions.',
 };
 
 export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return (
-		<html className="light" lang='ja'>
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
-		</html>
-	);
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang='ja' className='light'>
+      <head>
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+        />
+        <link rel='shortcut icon' href='/favicon.ico' sizes='32x32' />
+      </head>
+      <body suppressHydrationWarning={true}>
+        <LenisProvider>
+          <Suspense>
+            <MainLayout>{children}</MainLayout>
+          </Suspense>
+        </LenisProvider>
+      </body>
+    </html>
+  );
 }

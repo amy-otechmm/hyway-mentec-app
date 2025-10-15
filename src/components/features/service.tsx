@@ -1,6 +1,5 @@
 /** @format */
-
-// app/about/page.tsx
+'use client';
 
 import Image from 'next/image';
 import styles from './service.module.scss';

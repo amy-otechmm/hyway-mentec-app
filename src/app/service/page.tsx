@@ -3,10 +3,10 @@
 import MainLayout from '@/layout/main-layout';
 import ServicePage from '@/components/features/service';
 
-export default function Home() {
+export default function Service() {
 	return (
-		<MainLayout>
+		
 			<ServicePage />
-		</MainLayout>
+		
 	);
 }

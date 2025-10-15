@@ -1,7 +1,5 @@
 /** @format */
 
-// app/components/ContactForm/ContactForm.tsx
-
 'use client';
 
 import React, { useState } from 'react';
