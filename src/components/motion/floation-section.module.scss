@@ -1,0 +1,13 @@
+.floating_section {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.8s ease-out;
+  will-change: transform, opacity, scale;
+  perspective: 1000px;
+
+  img,
+  h2,
+  p {
+    transition: transform 0.8s ease-out;
+  }
+}

@@ -4,9 +4,10 @@
 import Image from 'next/image';
 import styles from './hero-section.module.scss';
 import { useRef } from 'react';
-import { IconDotsGrid, IconStart } from '../icons/icons';
-import { motion } from 'motion/react';
+import { IconDelivery, IconDotsGrid, IconStart } from '../icons/icons';
+import { motion, useScroll, useTransform } from 'motion/react';
 import CircularText from '../ui-accessory/circular-text';
+import Card from '../ui-accessory/card';
 
 const HeroSection = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,48 @@ const HeroSection = () => {
   // const handleStartClick = () => {
   //   contentRef.current?.scrollIntoView({ behavior: 'smooth' });
   // };
+  const containertest = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containertest,
+    offset: ['start start', 'end end'],
+  });
+
+  const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
+  const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
+  const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
+  const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
+  const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+
+  const pictures = [
+    {
+      src: '/images/hero/feactuer-img-1.png',
+      scale: scale4,
+    },
+    {
+      src: '/images/hero/gallery-img-2.png',
+      scale: scale5,
+    },
+    {
+      src: '/images/hero/gallery-img-3.png',
+      scale: scale6,
+    },
+    {
+      src: '/images/hero/gallery-img-4.png',
+      scale: scale5,
+    },
+    {
+      src: '/images/hero/gallery-img-5.png',
+      scale: scale6,
+    },
+    {
+      src: '/images/hero/gallery-img-2.png',
+      scale: scale8,
+    },
+    {
+      src: '/images/hero/gallery-img-2.png',
+      scale: scale9,
+    },
+  ];
 
   return (
     <main className={styles.heroContainer}>
@@ -45,10 +88,8 @@ const HeroSection = () => {
         dragTransition={{ power: 0.9, timeConstant: 400 }}
         className={styles.bridgeContainer}
         ref={contentRef}>
-        {/* <DotGrid className={styles.rightDots} rows={3} cols={2} />
-				<DotGrid className={styles.leftDots} rows={4} cols={2} /> */}
         <IconDotsGrid className={styles.right_dots} />
-        {/* <IconDotsGrid className={styles.left_dots} /> */}
+
         <div className={styles.bridgeContent}>
           <p className={styles.bridgeLogo}>ハイウェイメンテックは</p>
           <h1 className={styles.bridgeTitle}>
@@ -122,15 +163,14 @@ const HeroSection = () => {
         </div>
       </motion.section>
 
-      <section className={styles.galleryContainer}>
-        <CircularText
-          text='REACT*BITS*COMPONENTS*'
-          onHover='speedUp'
-          spinDuration={30}
+      {/* <CircularText
+          text='大規模建設プロジェクトに対応した、安全でカスタマイズ可能な足場をご用意しております。'
+          onHover='slowDown'
+          spinDuration={50}
           className='custom-class'
-        />
-        <div className={styles.galleryGrid}>
-          {/* Each div below is a grid area for an image */}
+        /> */}
+      {/* <div className={styles.galleryGrid}>
+          
           <div className={styles.galleryItem1}>
             <Image
               src='/images/hero/gallery-img-1.png'
@@ -171,17 +211,24 @@ const HeroSection = () => {
               objectFit='cover'
             />
           </div>
+        </div> */}
+      <div className={styles.testMain}>
+        <div ref={containertest} className={styles.gallery_container}>
+          <div className={styles.sticky}>
+            {pictures.map(({ src, scale }, index) => {
+              return (
+                <motion.div key={index} style={{ scale }} className={styles.el}>
+                  <div className={styles.imageContainer}>
+                    <Image src={src} fill alt='image' blurDataURL='blur' />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-      </section>
-      <section className={styles.featuredContainer}>
-        <div className={styles.featuredImageWrapper}>
-          <Image
-            src='/images/hero/gallery-img-1.png'
-            alt='一括吊上げ吊下げ工法'
-            layout='fill'
-            objectFit='cover'
-          />
-        </div>
+      </div>
+
+      <section className={styles.featuredContainerOne}>
         <div className={styles.featuredContent}>
           <span className={styles.featuredNumber}>01</span>
           <h2 className={styles.featuredTitle}>一括吊上げ吊下げ工法</h2>
@@ -193,10 +240,10 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-      <section className={styles.featuredContainer}>
+      <section className={styles.featuredContainerTwo}>
         <div className={styles.featuredImageWrapper}>
           <Image
-            src='/featured-method-2.jpg'
+            src='/images/hero/feactuer-img-1.png'
             alt='ヤモリ工法'
             layout='fill'
             objectFit='cover'
@@ -214,7 +261,46 @@ const HeroSection = () => {
         </div>
       </section>
 
-      <section className={styles.reasonsContainer}>
+      <section className={styles.methodsSection}>
+        <div className={styles.topLeftDots}></div>
+        <div className={styles.bottomLeftDots}></div>
+
+        <div className={styles.container}>
+          <div className={styles.titleWrapper}>
+            <p className={styles.title}>当社を選ぶ理由</p>
+            <p className={styles.subtitle}>ハイウェイ・メンテック</p>
+          </div>
+
+          <div className={styles.grid}>
+            <div className={styles.row}>
+              <Card
+                icon={<IconDelivery />}
+                title='持続可能な取り組み'
+                description='廃棄物削減・環境配慮・資材最適化を重視しています。'
+              />
+              <Card
+                icon={<IconDelivery />}
+                title='効率的かつ納期厳守'
+                description='事前組立と専用車両で工期短縮、渋滞を緩和します。'
+              />
+            </div>
+            <div className={styles.row}>
+              <Card
+                icon={<IconDelivery />}
+                title='卓越したエンジニアリング'
+                description='先進工法を駆使し、複雑な環境に最適な解決策を提供します。'
+              />
+              <Card
+                icon={<IconDelivery />}
+                title='安全第一'
+                description='すべての作業で安全を最優先にしています。'
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className={styles.reasonsContainer}>
         <div className={styles.reasonsLeftDots}></div>
         <div className={styles.reasonsRightDots}></div>
         <div className={styles.reasonsTitleWrapper}>
@@ -222,7 +308,6 @@ const HeroSection = () => {
           <p className={styles.reasonsSubtitle}>ハイウェイ・メンテック</p>
         </div>
         <div className={styles.reasonsGrid}>
-          {/* Reason 1 */}
           <div className={styles.reasonCard}>
             <div className={styles.reasonIcon}>[Icon1]</div>
             <h3 className={styles.reasonTitle}>持続可能な取り組み</h3>
@@ -231,7 +316,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Reason 2 */}
           <div className={styles.reasonCard}>
             <div className={styles.reasonIcon}>[Icon2]</div>
             <h3 className={styles.reasonTitle}>効率的かつ納期厳守</h3>
@@ -240,7 +324,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Reason 3 */}
           <div className={styles.reasonCard}>
             <div className={styles.reasonIcon}>[Icon3]</div>
             <h3 className={styles.reasonTitle}>卓越したエンジニアリング</h3>
@@ -249,7 +332,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Reason 4 */}
           <div className={styles.reasonCard}>
             <div className={styles.reasonIcon}>[Icon4]</div>
             <h3 className={styles.reasonTitle}>安全第一</h3>
@@ -258,7 +340,7 @@ const HeroSection = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import styles from './main-layout.module.scss';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 const NavBar = () => {
@@ -37,6 +37,26 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+  const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
+
+  const moveIndicator = (index: number) => {
+    const currentItem = itemsRef.current[index];
+    if (currentItem && indicatorRef.current) {
+      const { offsetLeft, offsetWidth } = currentItem;
+      indicatorRef.current.style.left = `${offsetLeft}px`;
+      indicatorRef.current.style.width = `${offsetWidth}px`;
+    }
+  };
+
+  useEffect(() => {
+    moveIndicator(activeIndex);
+    window.addEventListener('resize', () => moveIndicator(activeIndex));
+    return () =>
+      window.removeEventListener('resize', () => moveIndicator(activeIndex));
+  }, [activeIndex]);
+
   return (
     <AnimatePresence>
       {isShow && (
@@ -59,11 +79,18 @@ const NavBar = () => {
           </div>
 
           <ul className={styles.navList}>
-            {navLinks.map((link) => (
-              <li key={link.name} className={styles.navItem}>
+            {navLinks.map((link, i) => (
+              <li
+                key={link.name}
+                ref={(el: any) => (itemsRef.current[i] = el)}
+                className={`${activeIndex === i}  ? 'active' : '' ${
+                  styles.navItem
+                }`}
+                onClick={() => setActiveIndex(i)}>
                 <Link href={link.href}>{link.name}</Link>
               </li>
             ))}
+            <span className={styles.indicator} ref={indicatorRef}></span>
           </ul>
         </motion.nav>
       )}

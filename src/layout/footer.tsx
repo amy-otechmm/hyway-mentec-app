@@ -3,6 +3,12 @@
 
 import Link from 'next/link';
 import styles from './main-layout.module.scss';
+import {
+  IconArrowRight,
+  IconEmail,
+  IconLocation,
+  IconPhone,
+} from '@/components/icons/icons';
 
 const Footer = () => {
   return (
@@ -18,7 +24,7 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles.contactButton}>
-            査定面談 <span className={styles.arrow}>→</span>
+            <span>査定面談</span> <IconArrowRight className={styles.arrow} />
           </div>
         </div>
       </div>
@@ -50,15 +56,21 @@ const Footer = () => {
           <h3>&nbsp;</h3>
           <div className={styles.addressList}>
             <div className={styles.addressItem}>
-              <span className={styles.addressIcon}>[L]</span>
+              <span className={styles.addressIcon}>
+                <IconLocation />
+              </span>
               <span>〒454-0826 名古屋市中川区小本本町一丁目70番地</span>
             </div>
             <div className={styles.addressItem}>
-              <span className={styles.addressIcon}>[P]</span>
+              <span className={styles.addressIcon}>
+                <IconPhone />
+              </span>
               <span>TEL: 052-364-7280 FAX: 052-364-7281</span>
             </div>
             <div className={styles.addressItem}>
-              <span className={styles.addressIcon}>[E]</span>
+              <span className={styles.addressIcon}>
+                <IconEmail />
+              </span>
               <a href='mailto:kawajiri@hyway-mentec.com'>
                 kawajiri@hyway-mentec.com
               </a>

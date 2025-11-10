@@ -12,7 +12,7 @@ type LenisProviderProps = {
 export default function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       smoothWheel: true,
       // smoothTouch: false,
     });
