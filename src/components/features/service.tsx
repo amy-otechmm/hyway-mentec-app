@@ -1,12 +1,30 @@
 /** @format */
+
 'use client';
 
 import Image from 'next/image';
 import styles from './service.module.scss';
-import { IconDelivery, IconDotsGrid } from '../icons/icons';
-import Card from '../ui-accessory/card';
+import { IconDotsGrid } from '../icons/icons';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef, useEffect, useState } from 'react';
 
 const ServicePage = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  // Wait until the DOM is hydrated before using the ref
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  // Define scroll and transform values *after* hydration
+  const { scrollYProgress } = useScroll({
+    target: isReady ? container : undefined,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0vh', '150vh']);
+
   return (
     <main>
       {/* ===== 1. Hero Section ===== */}
@@ -31,93 +49,42 @@ const ServicePage = () => {
           <Image
             src='/images/service/mask-group-1.png'
             alt='サービスイメージ'
-            layout='fill'
-            objectFit='cover'
+            fill
+            style={{ objectFit: 'cover' }}
             className={styles.image}
           />
         </div>
       </section>
 
-      <section className={styles.introText}>
-        {/* <Image
-          src='/images/service/bg-rm-ball.png'
-          alt='サービスイメージ'
-          layout='fill'
-          objectFit='cover'
-          className={styles.introTextImage}
-        /> */}
+      {/* ===== 3. Motion Scroll Section ===== */}
+      <section className={styles.introText} ref={container}>
+        {/* {isReady && (
+          <div className='h-screen overflow-hidden'>
+            <motion.div style={{ y }} className='relative h-full'>
+              <Image
+                src='/images/service/service-img-1.jpg' // fixed typo
+                fill
+                alt='image'
+                style={{ objectFit: 'cover' }}
+              />
+            </motion.div>
+          </div>
+        )} */}
         <div>
           <p className={styles.introTitle}>革新的吊り足場工法</p>
           <div>
             <p className={styles.introDescription}>
-            当社の足場はユニット化された吊足場を使っており、従来の足場工法での問題点であった作業効率の悪さ、近隣問題、躯体へのあと施工アンカー打設によるクラックの発生の問題を解消できるため、多くの現場で採用されています。
-          </p>
-          <p>
-            吊上げ装置(パーフェクトビーム)の上に足場を組み吊上げるので、高所作業が少ない。足場架設解体中に開口部が少ないので、作業員･通行車輌等に対して安全な足場です。また在来の足場に比べて隙間･段差がないので、資材の落下がなく作業性にも優れています。
-          </p>
-          <p>
-            この足場を使って、従来の吊足場工法、桁の下フランジから吊下げる方法、橋脚と橋台の側面から吊下げる方法、場所打桁の側面から吊下げる方法、場所打桁の側面から吊下げる方法を使って円型、アーチ型の足場も設置可能となります。
-          </p>
+              当社の足場はユニット化された吊足場を使っており、従来の足場工法での問題点であった作業効率の悪さ、近隣問題、躯体へのあと施工アンカー打設によるクラックの発生の問題を解消できるため、多くの現場で採用されています。
+            </p>
+            <p>
+              吊上げ装置(パーフェクトビーム)の上に足場を組み吊上げるので、高所作業が少ない。足場架設解体中に開口部が少ないので、作業員･通行車輌等に対して安全な足場です。また在来の足場に比べて隙間･段差がないので、資材の落下がなく作業性にも優れています。
+            </p>
+            <p>
+              この足場を使って、従来の吊足場工法、桁の下フランジから吊下げる方法、橋脚と橋台の側面から吊下げる方法、場所打桁の側面から吊下げる方法、場所打桁の側面から吊下げる方法を使って円型、アーチ型の足場も設置可能となります。
+            </p>
           </div>
         </div>
       </section>
-
-      {/* ===== 3. Alternating Features Section ===== */}
-      <section className={styles.alternatingFeatures}>
-        <div className={styles.featureItem}>
-          <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>一括吊上げ吊下げ工法</h3>
-            <p className={styles.featureDescription}>
-              足場を地組ヤードでユニットに組立て、クレーン・ベント設備等で吊上げ、架設桁に固定します。架設桁の移動、吊下げ、横取り、回転機能により、任意の位置に足場を設置できます。
-              作業完了後は、ユニット毎に吊下げ、地組ヤードまで戻し、解体します。
-            </p>
-          </div>
-          <div className={styles.featureImage}>
-            <Image
-              src='/images/service/about-img-1.png'
-              alt='一括吊上げ吊下げ工法'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-        </div>
-        <div className={styles.featureItem}>
-          <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>ヤモリ工法</h3>
-            <p className={styles.featureDescription}>
-              橋桁にレールを設置し、ヤモリ（台車）を走行させ、足場ユニットを吊下げます。ヤモリは橋軸方向、橋軸直角方向に走行可能で、任意の位置に足場を設置できます。橋梁下条件（河川、道路、鉄道等）に影響されず、安全に足場を設置・解体できます。
-            </p>
-          </div>
-          <div className={styles.featureImage}>
-            <Image
-              src='/images/service/about-img-2.png'
-              alt='ヤモリ工法'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 4. Methods Section ===== */}
-      
-
-      {/* ===== 5. Unit Section ===== */}
-      {/* <section className={styles.unitSection}>
-        <div className={styles.unitContent}>
-          <h3 className={styles.unitTitle}>
-            お客様に合わせてご提案 ユニット式
-          </h3>
-          <div className={styles.unitImage}>
-            <Image
-              src='/images/about/unit.jpg'
-              alt='ユニット式'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 };

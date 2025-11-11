@@ -59,30 +59,9 @@ const HeroSection = () => {
     },
   ];
 
+
   return (
     <main className={styles.heroContainer}>
-      {/* <motion.section className={styles.landingContainer}>
-        <div className={styles.glassBox}>
-          <div className={styles.header}>
-            <Image
-              src='/images/common/LOGO.png'
-              alt='Logo'
-              width={100}
-              height={100}
-              className={styles.logo}
-            />
-            <h1 className={styles.landingCompanyName}>
-              ハイウェイメンテック株式会社
-            </h1>
-          </div>
-          <p className={styles.landingDescription}>
-            「足場から橋梁のメンテナンスまで、当社は安全性、革新性、品質を備えた信頼性の高い建設ソリューションを提供します。」
-          </p>
-        </div>
-        <div className={styles.startButton}>
-          Start <span className={styles.arrow}>→</span>
-        </div>
-      </motion.section> */}
       <motion.section
         drag
         dragTransition={{ power: 0.9, timeConstant: 400 }}

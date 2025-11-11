@@ -57,6 +57,10 @@ const NavBar = () => {
       window.removeEventListener('resize', () => moveIndicator(activeIndex));
   }, [activeIndex]);
 
+  useEffect(() => {
+    if (isShow) moveIndicator(activeIndex);
+  }, [isShow]);
+
   return (
     <AnimatePresence>
       {isShow && (
@@ -83,8 +87,8 @@ const NavBar = () => {
               <li
                 key={link.name}
                 ref={(el: any) => (itemsRef.current[i] = el)}
-                className={`${activeIndex === i}  ? 'active' : '' ${
-                  styles.navItem
+                className={`${styles.navItem} ${
+                  activeIndex === i ? styles.active : ''
                 }`}
                 onClick={() => setActiveIndex(i)}>
                 <Link href={link.href}>{link.name}</Link>
