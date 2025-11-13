@@ -60,18 +60,32 @@ a {
   opacity: 1;
 }
 
-.h-screen{
+.h-screen {
   height: 100vh;
 }
 
-.overflow-hidden{
+.overflow-hidden {
   overflow: hidden;
 }
 
-.relative{
+.relative {
   position: relative;
 }
 
-.h-full{
+.h-full {
   height: 100%;
+}
+
+.right_dots {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
+.left_dots {
+  position: absolute;
+  bottom: 20%;
+  transform: scaleX(-1) rotate(90deg);
+  left: 10%;
+  // transform: rotateY(180deg);
 }

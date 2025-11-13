@@ -38,13 +38,13 @@ const Footer = () => {
               <Link href='/'>ホーム</Link>
             </li>
             <li>
-              <Link href='/about'>会社概要</Link>
+              <Link href='/about-us'>会社概要</Link>
             </li>
             <li>
-              <Link href='/services'>サービス</Link>
+              <Link href='/service'>サービス</Link>
             </li>
             <li>
-              <Link href='/portfolio'>実績紹介</Link>
+              <Link href='/about-us'>実績紹介</Link>
             </li>
             <li>
               <Link href='/contact'>お問い合わせ</Link>

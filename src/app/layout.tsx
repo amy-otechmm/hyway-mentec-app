@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import MainLayout from '@/layout/main-layout';
 import { Suspense } from 'react';
 import LenisProvider from '@/stores/lenis-provider';
+import ScrollToTop from '@/components/ui-accessory/scroll-to-top';
 
 export const metadata: Metadata = {
   title: 'Hyway Mentec Inc.',
@@ -27,6 +28,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         <LenisProvider>
+          <ScrollToTop />
           <Suspense>
             <MainLayout>{children}</MainLayout>
           </Suspense>

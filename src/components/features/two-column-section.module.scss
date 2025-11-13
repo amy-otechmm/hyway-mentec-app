@@ -1,0 +1,125 @@
+@use '../../app/styles/variables';
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1100px;
+  /* A bit wider for the 2-column layout */
+  margin: 6rem auto;
+  /* 96px top/bottom margin */
+  padding: 0 2rem;
+
+  /* Modifier class to handle image on the left */
+  &.imageLeft {
+    .textContainer {
+      order: 2;
+      /* Text goes second */
+    }
+
+    .imageContainer {
+      order: 1;
+      /* Image goes first */
+    }
+  }
+}
+
+
+
+.textContainer {
+  color: #c0c8e0;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  /* This is a placeholder for your snowflake icon */
+  color: #a0a8d0;
+  font-size: 2.5rem;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 1.75rem;
+  @extend .shippori-mincho-semibold;
+  /* 28px */
+  font-weight: 500;
+}
+
+.description {
+  font-size: 0.9rem;
+  /* ~14.5px */
+  line-height: 1.9;
+
+  /* This allows you to pass in <p> tags */
+  /* and they will be styled correctly */
+  :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  :global(p:last-of-type) {
+    margin-bottom: 0;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  /* Control the image shape */
+  position: relative;
+  /* Required for Next.js Image with 'fill' */
+  border-radius: 8px;
+  overflow: hidden;
+  /* Clips the image to the rounded corners */
+}
+
+.image {
+  object-fit: cover;
+  /* Ensures the image covers the container */
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr;
+    /* Stack on mobile */
+    gap: 2rem;
+    margin: 4rem auto;
+
+    /* On mobile, image is always first, text second */
+    &.imageLeft {
+      .textContainer {
+        order: 2;
+      }
+
+      .imageContainer {
+        order: 1;
+      }
+    }
+  }
+
+
+
+  .textContainer {
+    order: 2;
+  }
+
+  .imageContainer {
+    order: 1;
+    aspect-ratio: 16 / 9;
+    /* Wider for mobile */
+  }
+
+  .title {
+    font-size: 1.5rem;
+    /* 24px */
+  }
+}

@@ -1,23 +1,59 @@
 @use '../../app/styles/variables';
 
-/* ========================================
-  1. About Hero Section
-======================================== */
-.hero {
-  height: 80vh;
+
+.servicePage>section {
+  height: 100vh;
+  /* Make each section full height */
+  scroll-snap-align: start;
+  /* Snap to the start of each section */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* Center content vertically */
   align-items: center;
-  text-align: center;
-  color: white;
+  /* Center content horizontally */
   position: relative;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), #0f1315de), url('/images/service/gallery-img-3.png');
+  width: 100%;
+  /* Add some padding */
+  overflow: hidden;
+  z-index: 5;
+  /* Hide overflowing pseudo-elements */
+}
+
+/* ========================================
+  1. About Hero Section
+======================================== */
+
+.scrollWrapper {
+  position: relative;
+  height: fit-content;
+  z-index: 5;
+}
+
+.heroSticky {
+  position: sticky;
+  top: 0;
+  height: 90vh;
+  overflow: hidden;
+  z-index: 1; // stays in background
+}
+
+.hero {
+  height: 80vh !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky !important;
+  overflow: hidden;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #0f1315de),
+    url('/images/service/gallery-img-3.png');
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  padding: 2rem;
-  position: relative;
+  color: white;
+  text-align: left;
+
 }
 
 .heroTitle {
@@ -26,7 +62,7 @@
   letter-spacing: 0.2rem;
   position: absolute;
   z-index: 2;
-  bottom: 80px;
+  top: -95px;
   right: 9%;
 }
 
@@ -36,11 +72,6 @@
   max-width: 600px;
 }
 
-.right_dots {
-  position: absolute;
-  top: 30%;
-  right: 50px;
-}
 
 
 
@@ -52,7 +83,7 @@
 .intro {
   background-color: #021F52;
   color: white;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 0 2rem;
   text-align: center;
   position: relative;
   border-radius: 80px 80px 0 0;
@@ -86,10 +117,10 @@
 .introText {
   background-color: #021F52;
   color: white;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 0 2rem;
   text-align: center;
   position: relative;
-  height: 100vh;
+  height: 200vh;
   z-index: 1;
 
   .introTextImage {
@@ -211,4 +242,66 @@
   height: 500px;
   border-radius: 10px;
   overflow: hidden;
+}
+
+/* A dark blue background, matching the image */
+.container {
+  background-color: transparent;
+  color: #e0e0e0;
+  /* Off-white for better readability */
+  /* Make it fill the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* This adds the faint circle effect from the background */
+  // background-image:
+  //   radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.03), transparent 30%),
+  //   radial-gradient(circle at 90% 50%, rgba(255, 255, 255, 0.03), transparent 30%),
+  //   radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03), transparent 30%);
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  /* 40px */
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+  /* 48px */
+}
+
+.text {
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.8;
+  color: #c0c8e0;
+  /* A lighter blue-grey for the text */
+  margin-bottom: 1.5rem;
+  /* 24px */
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    /* 32px */
+  }
+
+  .text {
+    font-size: 0.9rem;
+    /* ~14px */
+  }
 }

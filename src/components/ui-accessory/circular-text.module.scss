@@ -1,11 +1,12 @@
 .circular_text {
   margin: 0 auto;
   border-radius: 50%;
-  width: 2000px;
+  width: 800px;
   position: absolute;
   z-index: 9999;
-  top: 0;
-  height: 2000px;
+  top: 50%;
+  right: -300px;
+  height: 800px;
   font-weight: bold;
   color: #ffffff;
   opacity: 0.2;
@@ -24,6 +25,6 @@
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 100px;
+  font-size: 50px;
   transition: all 0.5s cubic-bezier(0, 0, 0, 1);
 }

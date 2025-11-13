@@ -33,6 +33,7 @@
   width: 100%;
   /* Add some padding */
   overflow: hidden;
+  z-index: 5;
   /* Hide overflowing pseudo-elements */
 
 
@@ -53,7 +54,7 @@
   padding: 2rem;
   color: white;
   background-image: url('/images/hero/loading-img-1.png');
-  
+
   /* Your first background */
   background-size: cover;
   background-position: center;
@@ -120,17 +121,31 @@
   font-size: 2rem;
 }
 
+.scrollWrapper {
+  position: relative;
+  height: fit-content;
+  z-index: 5;
+}
+
+.heroSticky {
+  position: sticky;
+  top: 0;
+  height: 90vh;
+  overflow: hidden;
+  z-index: 1; // stays in background
+}
+
 /* ========================================
   2. Bridge Content Section Styles
 ========================================
 */
 .bridgeContainer {
-  height: 90vh;
+  height: 80vh !important;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: sticky !important;
   overflow: hidden;
   background-image: url('/images/hero/hero-img-1.png');
   background-attachment: fixed;
@@ -152,7 +167,7 @@
 
 .bridgeTitle {
   @extend .shippori-mincho-medium;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 3px;
   line-height: 2;
@@ -186,6 +201,7 @@
 ========================================
 */
 .whatWeDoContainer {
+  height: 130vh !important;
   background-color: var(--background);
   color: #ffffff;
   padding: 8rem 4rem 4rem 4rem;
@@ -195,19 +211,20 @@
   z-index: 5;
   border-radius: 80px 80px 0 0;
   gap: 4rem;
+
 }
 
-.whatWeDoContainer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-color: inherit;
-  border-radius: 100% 100% 0 0 / 100px;
-  transform: translateY(-100%) scaleX(1.5);
-}
+// .whatWeDoContainer::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100px;
+//   background-color: inherit;
+//   border-radius: 100% 100% 0 0 / 100px;
+//   transform: translateY(-100%) scaleX(1.5);
+// }
 
 .whatWeDoContent {
   width: 100%;
@@ -228,17 +245,7 @@
   font-size: 1.5rem;
 }
 
-.right_dots {
-  position: absolute;
-  top: 30%;
-  right: 50px;
-}
 
-.left_dots {
-  position: absolute;
-  bottom: 20%;
-  right: 50px;
-}
 
 .icon_star {
   font-size: 3rem;
@@ -297,8 +304,9 @@
   border: 1px solid var(--secondary);
   border-radius: 10px;
   position: relative;
-  flex-direction: row;
   display: flex;
+  justify-content: center;
+  flex-direction: row;
   gap: 5rem;
 
   /* The "double border" effect using a pseudo-element */
@@ -450,6 +458,7 @@
   padding-bottom: 200px !important;
   border-radius: 0 0 80px 80px;
   margin-bottom: -100px;
+  position: relative;
   z-index: 1;
 }
 
@@ -648,7 +657,7 @@
 }
 
 .testMain {
-  padding-top: 50vh;
+  padding-top: 10vh !important;
   background-color: var(--background);
   width: 100%;
 
@@ -740,11 +749,11 @@
 }
 
 .methodsSection {
-  height: 2000px !important;
+  height: 1500px !important;
   position: relative;
-  padding: 6rem 2rem;
+  padding: 15rem 6rem;
   overflow: hidden;
-  background: linear-gradient(#A2C4FF, #0377C7, #154394);
+  background: linear-gradient(#6eaad3, #0377C7, #154394);
   color: #ffffff;
   padding-bottom: 5rem !important;
 
@@ -761,20 +770,33 @@
 }
 
 .titleWrapper {
-  text-align: center;
   margin-bottom: 2rem;
+  position: absolute;
+  right: -350px;
+  text-align: start;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: #14346D;
   @extend .shippori-mincho-medium;
+}
+
+.horizontalLine {
+  display: inline-block;
+  width: 150px;
+  height: 1px;
+  background-color: #14346D;
+  margin-left: 1rem;
+  vertical-align: middle;
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: #00a8e6;
+  color: #14346D;
   margin-top: 0.5rem;
+  @extend .shippori-mincho-medium;
 }
 
 .grid {
@@ -796,6 +818,7 @@
   &:nth-child(1) {
     margin-right: 40%;
     flex-direction: row;
+    position: relative;
     // margin-bottom: -100px;
 
 
@@ -840,4 +863,9 @@
 .bottomLeftDots {
   bottom: 100px;
   left: 100px;
+}
+
+.customCircularText {
+  left: -300px !important;
+  right: auto !important;
 }

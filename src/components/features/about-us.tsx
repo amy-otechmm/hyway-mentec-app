@@ -2,7 +2,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import DotGrid from '../ui-accessory/ui-accessory';
 import SideMenu from '@/layout/side-menu';
@@ -84,6 +84,27 @@ const AboutPage = () => {
       event: '現住所に移転。',
     },
   ];
+
+  const [activeSection, setActiveSection] = useState('speech');
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% visible
+      }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => sections.forEach((sec) => observer.unobserve(sec));
+  }, []);
 
   return (
     <div ref={containerRef}>

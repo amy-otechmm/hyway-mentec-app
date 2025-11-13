@@ -1,5 +1,4 @@
 /** @format */
-
 'use client';
 
 import { useEffect } from 'react';
@@ -14,8 +13,10 @@ export default function LenisProvider({ children }: LenisProviderProps) {
     const lenis = new Lenis({
       duration: 1.5,
       smoothWheel: true,
-      // smoothTouch: false,
     });
+
+    // ✅ expose globally
+    (window as any).lenis = lenis;
 
     const raf = (time: number) => {
       lenis.raf(time);
@@ -26,6 +27,7 @@ export default function LenisProvider({ children }: LenisProviderProps) {
 
     return () => {
       lenis.destroy();
+      (window as any).lenis = null;
     };
   }, []);
 
