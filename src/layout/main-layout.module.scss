@@ -4,6 +4,8 @@
  * @format
  */
 
+@use '../app/styles/variables';
+
 .navWrapper {
   position: fixed;
   /* Sits on top of the content below it */
@@ -158,11 +160,12 @@
   transition: transform 0.3s ease, background 0.3s ease;
   flex-shrink: 0;
   position: relative;
+  @extend .shippori-mincho-medium;
   /* Prevents the button from shrinking */
 
   &:hover {
     transform: scale(1.05);
-    background: rgba(0, 172, 230, 0.8);
+    background: #2fa2ef;
   }
 }
 

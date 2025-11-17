@@ -38,7 +38,7 @@ const AboutPage = () => {
     },
     { key: '設立', value: '平成4年7月17日' },
     { key: '資本金', value: '4,920万円' },
-    { key: '代表者', value: '代表取締役社長 川尻 洋二' },
+    { key: '代表者', value: '代表取締役社長 後藤高男' },
     {
       key: '事業内容',
       value: `
@@ -54,8 +54,7 @@ const AboutPage = () => {
     {
       key: '許可登録番号',
       value: `
-      土木 とび・土工事業 愛知県知事 (般-24) 第36577号<br />
-      鋼構造物 ほ装工事業 愛知県知事 (般-24) 第36577号
+     とび・土工工事業 愛知県知事 （般-4）第36577号
     `,
     },
   ];
@@ -110,21 +109,15 @@ const AboutPage = () => {
     <div ref={containerRef}>
       {/* === Hero Section === */}
       <section className={styles.hero}>
-        <motion.div className={styles.topRightDots} style={{ y: yDotsTop }}>
-          <IconDotsGrid className={styles.right_dots} />
-        </motion.div>
-
-        <motion.div
-          className={styles.bottomLeftDots}
-          style={{ y: yDotsBottom }}>
-          <DotGrid rows={4} cols={2} className={styles.bottomLeftDots} />
-        </motion.div>
-
-        <p className={styles.heroTitle}>ABOUT US</p>
+        <div className={styles.topRightDots}>
+          <IconDotsGrid className='right_dots' />
+          <IconDotsGrid className='left_dots' />
+        </div>
       </section>
 
       {/* === Main Layout === */}
       <div className={styles.pageWrapper}>
+        <p className={styles.heroTitle}>ABOUT US</p>
         <div className={styles.mainLayout}>
           {/* Sticky Sidebar */}
           <aside className={styles.leftColumn}>
@@ -177,7 +170,7 @@ const AboutPage = () => {
 
               <div className={styles.signature}>
                 <p>代表取締役社長</p>
-                <p>川尻 洋二</p>
+                <p>後藤高男</p>
               </div>
             </section>
 

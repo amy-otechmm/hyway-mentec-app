@@ -275,8 +275,8 @@ const HeroSection = () => {
             <Image
               src='/images/hero/gallery-img-5.webp'
               alt='ヤモリ工法'
-              layout='fill'
-              objectFit='cover'
+              fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
           </div>
           <div className={styles.featuredContent}>

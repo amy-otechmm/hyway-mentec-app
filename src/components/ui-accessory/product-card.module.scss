@@ -1,0 +1,82 @@
+@use '../../app/styles/variables'; // Make sure this path is correct
+
+/* Import the font mixin from your main file */
+/* If @extend .shippori-mincho-semibold; doesn't work here,
+   you might need to import the font definition directly */
+
+.card {
+  background-color: #0d2c4f; // A slightly lighter blue than your #021F52 bg
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  /* Fixed height for a consistent grid */
+}
+
+.content {
+  padding: 1.5rem;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Makes sure card content fills height */
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  // If you have a global font mixin or class:
+  // @extend .shippori-mincho-semibold;
+  font-family: 'Shippori Mincho', serif; // Fallback
+}
+
+.company {
+  font-size: 0.9rem;
+  color: #c0c8e0;
+  margin-bottom: 1.5rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+  /* Pushes features to the bottom if content is short */
+}
+
+.featureItem {
+  line-height: 1.6;
+}
+
+.featureLabel {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #00a8e6;
+  /* Using your theme's highlight color */
+  margin-bottom: 0.25rem;
+}
+
+.featureDescription {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin: 0;
+}

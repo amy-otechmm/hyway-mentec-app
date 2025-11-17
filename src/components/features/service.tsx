@@ -9,8 +9,78 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import TwoColumnSection from './two-column-section';
+import ProductCard from '../ui-accessory/product-card';
 
 const ServicePage = () => {
+  const productData = [
+    {
+      title: 'Spider Panel',
+      company: '株式会社タカミヤ',
+      imageUrl: '/images/service/product-card-1.png', 
+      imageAlt: 'Spider Panel scaffolding',
+      features: [
+        {
+          label: '安全性',
+          description: '内蔵の隙間床材により、隙間・段差のない作業空間を実現。',
+        },
+        {
+          label: '組立性',
+          description:
+            'ガイド材になる受け金具で簡単に位置決め。連結ボルトでしっかり固定。',
+        },
+        {
+          label: '汎用性',
+          description: '高架橋のカーブにも対応可能。アサガオとしても設置可能。',
+        },
+      ],
+    },
+    {
+      title: 'VMAX',
+      company: '株式会社タカミヤ',
+      imageUrl: '/images/service/product-card-2.png', // You need to add this image
+      imageAlt: 'VMAX scaffolding',
+      features: [
+        {
+          label: '安全性',
+          description:
+            'クランプ不要でスピーディーに組立。床材も隙間なく敷設可能。',
+        },
+        {
+          label: '作業効率',
+          description:
+            'フレキシブルな開口部で効率的荷揚げ。自由な吊りチェーンで登り替えラクラク。',
+        },
+        {
+          label: '経済性',
+          description:
+            '吊足場兼用により、通路管制や高所作業車の運用を最小限に。',
+        },
+      ],
+    },
+    {
+      title: 'クイックデッキ',
+      company: '日綜産業株式会社',
+      imageUrl: '/images/service/product-card-3.png', // You need to add this image
+      imageAlt: 'Quick Deck scaffolding',
+      features: [
+        {
+          label: '安全性',
+          description:
+            '吊点から跳ね出し最大5mの先行足場工法で、高所作業の危険を軽減。',
+        },
+        {
+          label: '高い強度',
+          description:
+            'トラス構造ジョイスト×高強度チェーンで最大積載350kg/㎡。',
+        },
+        {
+          label: '快適な床',
+          description:
+            '吊チェーン間隔が広く、たわみが少なく段差や開口が無い快適な床。',
+        },
+      ],
+    },
+  ];
   const container = useRef<HTMLDivElement | null>(null);
   const [isReady, setIsReady] = useState(false);
 
@@ -129,6 +199,40 @@ const ServicePage = () => {
               の一部を占用して架設しました。 車道部は一切規制して おりません。
             </p>
           </TwoColumnSection>
+        </section>
+        {/* ===== 4. NEW: Product Grid Section ===== */}
+        <section className={styles.productGridSection}>
+          <div className={styles.productGrid}>
+            {productData.map((product) => (
+              <ProductCard
+                key={product.title}
+                title={product.title}
+                company={product.company}
+                imageUrl={product.imageUrl}
+                imageAlt={product.imageAlt}
+                features={product.features}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* ===== 5. NEW: Unit Section ===== */}
+        <section className={styles.unitSection}>
+          <div className={styles.unitContent}>
+            <h2 className={styles.unitTitle}>
+              お客様に合わせてご提案
+              <br />
+              <span>ユニット式</span>
+            </h2>
+            <div className={styles.unitImage}>
+              <Image
+                src='/images/service/bridge-img1.png' 
+                alt='Unit System bridge scaffolding'
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+          </div>
         </section>
       </div>
     </main>

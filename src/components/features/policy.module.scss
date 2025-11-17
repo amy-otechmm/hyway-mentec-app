@@ -1,0 +1,74 @@
+@use "../../app/styles/variables";
+@use "../../app/styles/mixin";
+
+.privacyContainer {
+  background: linear-gradient(160deg, #348ED8 0%, #154394 100%);
+  padding: 6rem 12rem 23rem 12rem;
+  margin: auto;
+  // max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: #fff;
+
+  .mainTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 2rem 0;
+    color: var((--primary-foreground));
+    @extend .shippori-mincho-semibold;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  @include mixin.xl {
+    padding: 100px;
+  }
+
+  @include mixin.lg {
+    padding: 100px 70px;
+  }
+
+  @include mixin.sm {
+    padding: 100px 30px;
+
+    h1 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  .privacyContent {
+    color: var(--txt-color);
+
+    .intro {
+      margin-bottom: 30px;
+    }
+
+    .policy {
+      margin-bottom: 50px;
+
+      .header {
+        margin-bottom: 20px;
+        background-color: #c5e7ff;
+        padding: 5px 10px;
+        border-radius: 2px;
+        color: var(--primary-foreground);
+      }
+
+      .content {
+        text-align: justify;
+        line-height: 30px;
+
+        ul {
+          padding: 20px 0px 20px 50px;
+          list-style: none;
+        }
+      }
+    }
+
+  }
+
+}

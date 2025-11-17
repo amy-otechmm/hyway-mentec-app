@@ -71,8 +71,8 @@ const Footer = () => {
               <span className={styles.addressIcon}>
                 <IconEmail />
               </span>
-              <a href='mailto:kawajiri@hyway-mentec.com'>
-                kawajiri@hyway-mentec.com
+              <a href='mailto:goto@hyway-mentec.com'>
+                goto@hyway-mentec.com
               </a>
             </div>
           </div>

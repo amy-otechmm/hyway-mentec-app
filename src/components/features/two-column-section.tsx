@@ -39,7 +39,7 @@ const TwoColumnSection: React.FC<Props> = ({
         <Image
           src={imageUrl}
           alt={imageAlt}
-          fill // 'fill' will make the image cover the container
+          fill 
           className={styles.image}
         />
       </div>

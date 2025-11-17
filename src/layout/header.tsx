@@ -6,6 +6,7 @@ import styles from './main-layout.module.scss';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
   const navLinks = [
@@ -17,7 +18,15 @@ const NavBar = () => {
 
   const [isShow, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
 
+  useEffect(() => {
+    const currentIndex = navLinks.findIndex((link) => link.href === pathname);
+
+    if (currentIndex !== -1) {
+      setActiveIndex(currentIndex);
+    }
+  }, [pathname]);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -51,15 +60,14 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    moveIndicator(activeIndex);
-    window.addEventListener('resize', () => moveIndicator(activeIndex));
-    return () =>
-      window.removeEventListener('resize', () => moveIndicator(activeIndex));
+    const handleResize = () => moveIndicator(activeIndex);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [activeIndex]);
 
   useEffect(() => {
     if (isShow) moveIndicator(activeIndex);
-  }, [isShow]);
+  }, [isShow, activeIndex]);
 
   return (
     <AnimatePresence>
