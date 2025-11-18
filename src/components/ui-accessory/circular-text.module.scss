@@ -1,12 +1,14 @@
+@use '../../app/styles/mixin' as mixin;
+
 .circular_text {
   margin: 0 auto;
   border-radius: 50%;
-  width: 800px;
+  width: 700px;
   position: absolute;
   z-index: 9999;
-  top: 50%;
+  top: 40%;
   right: -300px;
-  height: 800px;
+  height: 700px;
   font-weight: bold;
   color: #ffffff;
   opacity: 0.2;
@@ -15,7 +17,22 @@
   cursor: pointer;
   transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
-  
+
+
+  @include mixin.md {
+    width: 400px;
+    height: 400px;
+    right: 500px !important;
+    top: 50% !important;
+  }
+
+  @include mixin.sm {
+    width: 400px;
+    height:400px;
+    right: -50px !important;
+    top: 60% !important;
+  }
+
 }
 
 .circular_text_span {
@@ -25,6 +42,10 @@
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 50px;
+  font-size: 45px;
   transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+
+  @include mixin.md {
+    font-size: 25px;
+  }
 }

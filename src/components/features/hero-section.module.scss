@@ -1,64 +1,61 @@
 /** @format */
 
-@use '../../app/styles/variables';
+@use '../../app/styles/variables' as *;
+@use '../../app/styles/mixin' as mixin;
+@use '../../app/styles/functions' as fn;
 
 /* --- General Page Styles --- */
 .homePageWrapper {
   background-color: #0d2c4f;
-  /* Fallback background for below content */
 }
 
 .heroContainer {
   // height: 100vh;
-  // overflow-y: scroll; /* Allow vertical scrolling */
-  // scroll-snap-type: y mandatory; /* UPDATED: Enable vertical scroll snapping */
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+  // scroll-snap-type: y mandatory;
 }
 
-// /* ========================================
-//   Universal Section Styling
-// ======================================== */
-/* UPDATED: Applying common styles to all direct section children */
 .heroContainer>section {
   height: 100vh;
-  /* Make each section full height */
   scroll-snap-align: start;
-  /* Snap to the start of each section */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Center content vertically */
   align-items: center;
-  /* Center content horizontally */
   position: relative;
   width: 100%;
-  /* Add some padding */
   overflow: hidden;
   z-index: 5;
-  /* Hide overflowing pseudo-elements */
 
-
+  /* Mobile Adjustments */
+  @include mixin.sm() {
+    padding: 1rem;
+    height: auto; // allow flexible height
+  }
 }
 
 /* ========================================
-  1. Initial Landing Section Styles
-========================================
-*/
+   1. Initial Landing Section
+======================================== */
 .landingContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* Full viewport height */
   width: 100%;
   padding: 2rem;
   color: white;
   background-image: url('/images/hero/loading-img-1.png');
-
-  /* Your first background */
   background-size: cover;
   background-position: center;
   position: relative;
+
+  /* Mobile Adjustments */
+  @include mixin.sm() {
+    padding: 1rem;
+  }
 }
 
 .glassBox {
@@ -70,6 +67,11 @@
   padding: 2.5rem;
   max-width: 800px;
   text-align: left;
+
+  @include mixin.sm() {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
 }
 
 .header {
@@ -77,21 +79,40 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @include mixin.sm() {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 .logo {
   width: 100px;
   height: auto;
+
+  @include mixin.sm() {
+    width: 80px;
+  }
 }
 
 .landingCompanyName {
   font-size: 2rem;
   font-weight: bold;
+
+  @include mixin.sm() {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
 
 .landingDescription {
   font-size: 1.1rem;
   line-height: 1.6;
+
+  @include mixin.sm() {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 
 .startButton {
@@ -113,18 +134,32 @@
     transform: scale(1.05);
     background: rgba(0, 172, 230, 0.8);
   }
+
+  @include mixin.sm() {
+    width: 100px;
+    height: 100px;
+    font-size: 1.2rem;
+    bottom: 3rem;
+  }
 }
 
 .arrow {
   margin-left: 10px;
   font-weight: bold;
   font-size: 2rem;
+
+  @include mixin.sm() {
+    font-size: 1.5rem;
+    margin-left: 5px;
+  }
 }
 
 .scrollWrapper {
   position: relative;
   height: fit-content;
   z-index: 5;
+  background: #0d285b;
+  border-radius: 50px;
 }
 
 .heroSticky {
@@ -132,7 +167,11 @@
   top: 0;
   height: 90vh;
   overflow: hidden;
-  z-index: 1; // stays in background
+  z-index: 1;
+
+  @include mixin.sm() {
+    height: auto;
+  }
 }
 
 /* ========================================
@@ -167,7 +206,7 @@
 
 .bridgeTitle {
   @extend .shippori-mincho-medium;
-  font-size: 2.2rem;
+  font-size: fn.get-vw(14px);
   margin-bottom: 1rem;
   letter-spacing: 3px;
   line-height: 2;
@@ -212,19 +251,17 @@
   border-radius: 80px 80px 0 0;
   gap: 4rem;
 
-}
+  @include mixin.md() {
+    height: 100% !important;
+  }
 
-// .whatWeDoContainer::before {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100px;
-//   background-color: inherit;
-//   border-radius: 100% 100% 0 0 / 100px;
-//   transform: translateY(-100%) scaleX(1.5);
-// }
+
+  @include mixin.sm() {
+    border-radius: 50px 50px 0 0;
+    padding: 8rem 2rem 4rem 1rem;
+  }
+
+}
 
 .whatWeDoContent {
   width: 100%;
@@ -239,6 +276,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @include mixin.md() {
+    font-size: fn.get-vw(12px);
+  }
+
 }
 
 .icon {
@@ -257,6 +299,10 @@
   margin-top: 0.5rem;
   margin-left: 3rem;
   color: var(--secondary);
+
+  @include mixin.md() {
+    font-size: fn.get-vw(16px);
+  }
 }
 
 .servicesContainer {
@@ -309,6 +355,11 @@
   flex-direction: row;
   gap: 5rem;
 
+  @include mixin.sm() {
+    gap: 0;
+    padding: 2.5rem 0.5rem 2.5rem 1.5rem;
+  }
+
   /* The "double border" effect using a pseudo-element */
   &::before {
     content: '';
@@ -331,6 +382,10 @@
   &:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  @include mixin.sm() {
+    padding: 1rem 0;
+  }
 }
 
 .serviceTitle {
@@ -339,13 +394,20 @@
   margin-bottom: 0.75rem;
   color: #00a8e6;
   /* Bright blue for titles */
+
+  @include mixin.sm() {
+    font-size: fn.get-vw(13px);
+  }
 }
 
 .serviceDescription {
   font-size: 1rem;
   line-height: 1.7;
   color: #e0e0e0;
-  /* Light grey for better readability */
+
+  @include mixin.sm() {
+    font-size: fn.get-vw(12px);
+  }
 }
 
 .verticalTextContainer {
@@ -395,18 +457,12 @@
   max-width: 1100px;
   margin: 0 auto;
   height: 600px;
-  /* Define a fixed height for the container */
-
-  /* Define the grid layout */
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(8, 1fr);
-  /* 8 columns for flexibility */
   grid-template-rows: repeat(8, 1fr);
-  /* 8 rows */
 }
 
-/* Base styles for all gallery items (the containers) */
 .galleryGrid>div {
   position: relative;
   /* Needed for Next.js Image with layout="fill" */
@@ -449,34 +505,41 @@
 
 .featuredContainerOne {
   background-color: var(--background);
-  height: 60vh !important;
+
+
+  @include mixin.md() {}
 
 }
 
 .featuredContainerTwo {
+
   background-color: var(--background);
   padding-bottom: 200px !important;
   border-radius: 0 0 80px 80px;
   margin-bottom: -100px;
   position: relative;
   z-index: 1;
+
+  @include mixin.sm() {
+    border-radius: 0 0 50px 50px;
+  }
 }
 
 
 
 .featuredImageWrapper {
   position: relative;
-  width: 100%;
-  height: 50vh;
-  /* 50% of the viewport height */
-  max-height: 500px;
+  width: 86%;
+  height: 65vh !important;
+  /* max-height: 500px; */
+  margin: 0 auto
 }
 
 .featuredContent {
 
   /* Dark blue */
   color: #ffffff;
-  max-width: 1100px;
+  width: 86%;
   margin: 0 auto;
   padding: 4rem 2rem 6rem 2rem;
   position: relative;
@@ -495,11 +558,17 @@
 }
 
 .featuredTitle {
+  @extend .shippori-mincho-medium;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
   position: relative;
   z-index: 2;
+
+  @include mixin.sm() {
+    font-size: fn.get-vw(18px);
+  }
+
 }
 
 .featuredDescription {
@@ -526,7 +595,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  /* Slightly smaller font */
+  /* Slightly mixin.smaller font */
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
   z-index: 2;
@@ -656,10 +725,16 @@
   right: 50px;
 }
 
-.testMain {
+.galleryOuter {
   padding-top: 10vh !important;
   background-color: var(--background);
   width: 100%;
+
+  @include mixin.sm() {
+    padding-top: 5vh !important;
+  }
+
+
 
   .gallery_container {
     height: 300vh !important;
@@ -685,6 +760,8 @@
           position: relative;
           width: 25vw;
           height: 25vh;
+
+
 
           img {
             object-fit: cover;
@@ -757,6 +834,11 @@
   color: #ffffff;
   padding-bottom: 5rem !important;
 
+  @include mixin.sm() {
+    height: 2500px !important;
+    padding: 10rem 2rem;
+  }
+
 }
 
 .container {
@@ -774,6 +856,11 @@
   position: absolute;
   right: -350px;
   text-align: start;
+
+  @include mixin.sm() {
+    right: 0;
+    top: 0;
+  }
 }
 
 .title {
@@ -806,6 +893,7 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+
 }
 
 .row {
@@ -813,21 +901,33 @@
   gap: 50px;
   flex-direction: column;
 
+  @include mixin.sm() {
+    
+    padding-top: 100px;
+  }
 
-  /* Create the offset effect */
+
+
   &:nth-child(1) {
     margin-right: 40%;
     flex-direction: row;
     position: relative;
-    // margin-bottom: -100px;
 
+    @include mixin.sm() {
+      flex-direction: column;
+      margin-right: 0;
+    }
 
   }
 
   &:nth-child(2) {
     flex-direction: row;
-
     margin-left: 40%;
+
+    @include mixin.sm() {
+      flex-direction: column;
+      margin-left: 0%;
+    }
 
   }
 }
@@ -855,17 +955,41 @@
   }
 }
 
-.topLeftDots {
-  top: 100px;
-  right: 100px;
-}
 
-.bottomLeftDots {
-  bottom: 100px;
-  left: 100px;
-}
 
 .customCircularText {
   left: -300px !important;
   right: auto !important;
+}
+
+.contactButton {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #71C3FA;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  margin: 0 auto;
+  @extend .shippori-mincho-medium;
+
+
+  &:hover {
+    transform: scale(1.05);
+    background: #2fa2ef;
+  }
+}
+
+.arrow {
+  position: absolute;
+  bottom: 30%;
+  left: 30%;
+
 }

@@ -5,30 +5,32 @@
  */
 
 @use '../app/styles/variables';
+@use '../app/styles/mixin';
 
-.navWrapper {
+
+.navContainer {
+  width: 100%;
   position: fixed;
-  /* Sits on top of the content below it */
   top: 0;
   left: 0;
-  width: 99%;
-  padding: 0.8rem 2rem;
-  /* More padding on the sides */
-  margin: 7px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 50;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .navWrapper {
+    width: 98%;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 7px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  /* Subtle gradient for the background */
-  border-radius: 9px;
-  background: #c5e7ff;
-  background: linear-gradient(90deg,
-      rgba(197, 231, 255, 1) 0%,
-      rgba(92, 151, 255, 1) 50%,
-      rgba(196, 231, 255, 1) 100%);
+    border-radius: 9px;
+    background: #c5e7ff;
+    background: linear-gradient(90deg,
+        rgba(197, 231, 255, 1) 0%,
+        rgba(92, 151, 255, 1) 50%,
+        rgba(196, 231, 255, 1) 100%);
+  }
 }
 
 
@@ -121,6 +123,10 @@
   margin-top: -300px;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include mixin.md {
+    flex-direction: column;
+  }
 }
 
 .contactInfo {
@@ -285,4 +291,86 @@
   font-size: 1.1rem;
   border-left: 3px solid #0f9bf8;
   background-color: rgba(15, 155, 248, 0.1);
+}
+
+
+
+/* ========================================
+  RESPONSIVE NAVIGATION
+======================================== */
+
+/* Hide desktop nav on mobile/tablet */
+@media (max-width: 1024px) {
+  .navList {
+    display: none;
+  }
+
+  .companyName {
+    font-size: 1rem;
+  }
+
+  .companyName a {
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+}
+
+/* MOBILE HAMBURGER BUTTON */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+}
+
+/* MOBILE MENU DROPDOWN */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 190px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+
+  li a {
+
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: #006edc;
+    }
+  }
+
+  @include mixin.es {
+    .companyName {
+      font-size: 0.9rem;
+    }
+
+    .mobileMenu li a {
+      font-size: 0.9rem;
+    }
+  }
+
 }

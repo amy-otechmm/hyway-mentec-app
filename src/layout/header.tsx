@@ -16,26 +16,31 @@ const NavBar = () => {
     { name: '連絡先', href: '/contact' },
   ];
 
+  const pathname = usePathname();
   const [isShow, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const pathname = usePathname();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+  const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     const currentIndex = navLinks.findIndex((link) => link.href === pathname);
-
     if (currentIndex !== -1) {
       setActiveIndex(currentIndex);
     }
   }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down past 100px → hide navbar
         setShow(false);
+        setMenuOpen(false); // auto-close mobile menu
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up → show navbar
         setShow(true);
       }
 
@@ -46,17 +51,13 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const indicatorRef = useRef<HTMLSpanElement>(null);
-  const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
-
   const moveIndicator = (index: number) => {
     const currentItem = itemsRef.current[index];
-    if (currentItem && indicatorRef.current) {
-      const { offsetLeft, offsetWidth } = currentItem;
-      indicatorRef.current.style.left = `${offsetLeft}px`;
-      indicatorRef.current.style.width = `${offsetWidth}px`;
-    }
+    const indicator = indicatorRef.current;
+    if (!currentItem || !indicator) return;
+
+    indicator.style.left = `${currentItem.offsetLeft}px`;
+    indicator.style.width = `${currentItem.offsetWidth}px`;
   };
 
   useEffect(() => {
@@ -72,39 +73,73 @@ const NavBar = () => {
   return (
     <AnimatePresence>
       {isShow && (
-        <motion.nav
+        <motion.div
           key='navbar'
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          className={styles.navWrapper}>
-          <div className={styles.companyName}>
-            <Image
-              src='/images/common/LOGO.png'
-              alt='Logo'
-              width={50}
-              height={50}
-              className={styles.logo}
-            />
-            <Link href='/'>ハイウェイメンテック株式会社</Link>
-          </div>
+          className={styles.navContainer}>
+          <nav className={styles.navWrapper}>
+            <div className={styles.companyName}>
+              <Image
+                src='/images/common/LOGO.png'
+                alt='Logo'
+                width={45}
+                height={45}
+                priority
+              />
+              <Link href='/'>ハイウェイメンテック株式会社</Link>
+            </div>
 
-          <ul className={styles.navList}>
-            {navLinks.map((link, i) => (
-              <li
-                key={link.name}
-                ref={(el: any) => (itemsRef.current[i] = el)}
-                className={`${styles.navItem} ${
-                  activeIndex === i ? styles.active : ''
-                }`}
-                onClick={() => setActiveIndex(i)}>
-                <Link href={link.href}>{link.name}</Link>
-              </li>
-            ))}
-            <span className={styles.indicator} ref={indicatorRef}></span>
-          </ul>
-        </motion.nav>
+            {/* HAMBURGER BUTTON */}
+            <button
+              className={styles.hamburger}
+              onClick={() => setMenuOpen(!menuOpen)}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            {/* DESKTOP NAV */}
+            <ul className={styles.navList}>
+              {navLinks.map((link, i) => (
+                <li
+                  key={link.name}
+                  ref={(el: any) => (itemsRef.current[i] = el)}
+                  className={`${styles.navItem} ${
+                    activeIndex === i ? styles.active : ''
+                  }`}
+                  onClick={() => setActiveIndex(i)}>
+                  <Link href={link.href}>{link.name}</Link>
+                </li>
+              ))}
+              <span className={styles.indicator} ref={indicatorRef}></span>
+            </ul>
+
+            {/* MOBILE MENU */}
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.ul
+                  className={styles.mobileMenu}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}>
+                  {navLinks.map((link, i) => (
+                    <li
+                      key={link.name}
+                      onClick={() => {
+                        setActiveIndex(i);
+                        setMenuOpen(false);
+                      }}>
+                      <Link href={link.href}>{link.name}</Link>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </nav>
+        </motion.div>
       )}
     </AnimatePresence>
   );

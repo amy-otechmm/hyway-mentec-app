@@ -1,4 +1,5 @@
 /** @format */
+@use './styles/mixin' as mixin;
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap');
 
 * {
@@ -9,11 +10,15 @@
 
 html,
 body {
-  max-width: 100vw;
-  // overflow-x: hidden;
+  overflow: clip;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
+
+  @include mixin.sm {
+    // overflow: hidden;
+  }
 }
+
 
 a {
   color: inherit;
@@ -80,6 +85,7 @@ a {
   position: absolute;
   top: 20%;
   right: 10%;
+  opacity: 0.5;
 }
 
 .left_dots {
@@ -87,5 +93,7 @@ a {
   bottom: 20%;
   transform: scaleX(-1) rotate(90deg);
   left: 10%;
+  opacity: 0.5;
+
   // transform: rotateY(180deg);
 }

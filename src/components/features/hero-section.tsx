@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './hero-section.module.scss';
 import { useRef } from 'react';
 import {
+  IconArrowRight,
   IconCrane,
   IconDelivery,
   IconDotsGrid,
@@ -86,7 +87,6 @@ const HeroSection = () => {
                 <SplitText
                   initial={{ y: '100%' }}
                   animate='visible'
-                  size={36}
                   variants={{
                     visible: (i: number) => ({
                       y: 0,
@@ -109,7 +109,6 @@ const HeroSection = () => {
                 <SplitText
                   initial={{ y: '100%' }}
                   animate='visible'
-                  size={36}
                   variants={{
                     visible: (i: number) => ({
                       y: 0,
@@ -139,12 +138,11 @@ const HeroSection = () => {
               <IconStart className={styles.icon_star} />
               What We Do
             </div>
-            <h2 className={styles.whatWeDoHeading}>私たちの目標は何ですか？</h2>
+            <p className={styles.whatWeDoHeading}>私たちの目標は何ですか？</p>
           </div>
           <div className={styles.servicesLayout}>
             <div className={styles.servicesCard}>
               <div>
-                {/* Service Item 1 */}
                 <div className={styles.serviceItem}>
                   <h3 className={styles.serviceTitle}>橋梁建設・維持管理</h3>
                   <p className={styles.serviceDescription}>
@@ -152,7 +150,6 @@ const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* Service Item 2 */}
                 <div className={styles.serviceItem}>
                   <h3 className={styles.serviceTitle}>足場ソリューション</h3>
                   <p className={styles.serviceDescription}>
@@ -160,7 +157,6 @@ const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* Service Item 3 */}
                 <div className={styles.serviceItem}>
                   <h3 className={styles.serviceTitle}>
                     高速道路の補修・安全対策
@@ -170,7 +166,6 @@ const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* Service Item 4 */}
                 <div className={styles.serviceItem}>
                   <h3 className={styles.serviceTitle}>
                     コンサルティング・プロジェクト管理
@@ -188,58 +183,14 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <CircularText
+          {/* <CircularText
             text='大規模建設プロジェクトに対応した、安全でカスタマイズ可能な足場をご用意しております。'
             onHover='slowDown'
             spinDuration={50}
             className={styles.customCircularText}
-          />
+          /> */}
         </motion.section>
-
-        {/* <div className={styles.galleryGrid}>
-          
-          <div className={styles.galleryItem1}>
-            <Image
-              src='/images/hero/gallery-img-1.png'
-              alt='Construction project 1'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-          <div className={styles.galleryItem2}>
-            <Image
-              src='/images/hero/gallery-img-2.png'
-              alt='Construction project 2'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-          <div className={styles.galleryItem3}>
-            <Image
-              src='/images/hero/gallery-img-3.png'
-              alt='Construction project 3'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-          <div className={styles.galleryItem4}>
-            <Image
-              src='/images/hero/gallery-img-4.png'
-              alt='Construction project 4'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-          <div className={styles.galleryItem5}>
-            <Image
-              src='/images/hero/gallery-img-5.png'
-              alt='Construction project 5'
-              layout='fill'
-              objectFit='cover'
-            />
-          </div>
-        </div> */}
-        <div className={styles.testMain}>
+        <div className={styles.galleryOuter}>
           <div ref={containertest} className={styles.gallery_container}>
             <div className={styles.sticky}>
               {pictures.map(({ src, scale }, index) => {
@@ -260,13 +211,15 @@ const HeroSection = () => {
 
         <section className={styles.featuredContainerOne}>
           <div className={styles.featuredContent}>
-            <span className={styles.featuredNumber}>01</span>
-            <h2 className={styles.featuredTitle}>一括吊上げ吊下げ工法</h2>
-            <p className={styles.featuredDescription}>
-              一括吊上げ工法は、橋梁部材を地上で事前に組立て、その後、油圧システム、ジャッキシリンダー、またはガントリーを使用して最終位置に吊り上げる橋梁施工技術です。
-            </p>
-            <div className={styles.detailsButton}>
-              詳細相談 <span className={styles.arrow}>→</span>
+            <div className={styles.featuredText}>
+              <span className={styles.featuredNumber}>01</span>
+              <h2 className={styles.featuredTitle}>一括吊上げ吊下げ工法</h2>
+              <p className={styles.featuredDescription}>
+                一括吊上げ工法は、橋梁部材を地上で事前に組立て、その後、油圧システム、ジャッキシリンダー、またはガントリーを使用して最終位置に吊り上げる橋梁施工技術です。
+              </p>
+            </div>
+            <div className={styles.contactButton}>
+              <span>査定面談</span> <IconArrowRight className={styles.arrow} />
             </div>
           </div>
         </section>
@@ -276,17 +229,20 @@ const HeroSection = () => {
               src='/images/hero/gallery-img-5.webp'
               alt='ヤモリ工法'
               fill
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              objectFit='cover'
+              // sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
           </div>
           <div className={styles.featuredContent}>
-            <span className={styles.featuredNumber}>02</span>
-            <h2 className={styles.featuredTitle}>ヤモリ工法</h2>
-            <p className={styles.featuredDescription}>
-              ヤモリ工法は、橋桁に固定されたレールに沿って足場を移動することで、狭い場所や交通量の多い場所でも安全な橋梁調査を可能にします。これにより、作業員の安全性を高め、事故リスクを減らし、従来のモノレール式足場の組み立てを実現します。
-            </p>
-            <div className={styles.detailsButton}>
-              詳細面談 <span className={styles.arrow}>→</span>
+            <div className={styles.featuredText}>
+              <span className={styles.featuredNumber}>02</span>
+              <h2 className={styles.featuredTitle}>ヤモリ工法</h2>
+              <p className={styles.featuredDescription}>
+                ヤモリ工法は、橋桁に固定されたレールに沿って足場を移動することで、狭い場所や交通量の多い場所でも安全な橋梁調査を可能にします。これにより、作業員の安全性を高め、事故リスクを減らし、従来のモノレール式足場の組み立てを実現します。
+              </p>
+            </div>
+            <div className={styles.contactButton}>
+              <span>査定面談</span> <IconArrowRight className={styles.arrow} />
             </div>
           </div>
         </section>
@@ -332,48 +288,6 @@ const HeroSection = () => {
             </div>
           </div>
         </section>
-
-        {/* <section className={styles.reasonsContainer}>
-        <div className={styles.reasonsLeftDots}></div>
-        <div className={styles.reasonsRightDots}></div>
-        <div className={styles.reasonsTitleWrapper}>
-          <h2 className={styles.reasonsTitle}>当社を選ぶ理由</h2>
-          <p className={styles.reasonsSubtitle}>ハイウェイ・メンテック</p>
-        </div>
-        <div className={styles.reasonsGrid}>
-          <div className={styles.reasonCard}>
-            <div className={styles.reasonIcon}>[Icon1]</div>
-            <h3 className={styles.reasonTitle}>持続可能な取り組み</h3>
-            <p className={styles.reasonDescription}>
-              廃棄物削減・環境配慮・資材最適化を重視しています。
-            </p>
-          </div>
-
-          <div className={styles.reasonCard}>
-            <div className={styles.reasonIcon}>[Icon2]</div>
-            <h3 className={styles.reasonTitle}>効率的かつ納期厳守</h3>
-            <p className={styles.reasonDescription}>
-              事前組立と専用車両で工期短縮、渋滞を緩和します。
-            </p>
-          </div>
-
-          <div className={styles.reasonCard}>
-            <div className={styles.reasonIcon}>[Icon3]</div>
-            <h3 className={styles.reasonTitle}>卓越したエンジニアリング</h3>
-            <p className={styles.reasonDescription}>
-              先進工法を駆使し、複雑な環境に最適な解決策を提供します。
-            </p>
-          </div>
-
-          <div className={styles.reasonCard}>
-            <div className={styles.reasonIcon}>[Icon4]</div>
-            <h3 className={styles.reasonTitle}>安全第一</h3>
-            <p className={styles.reasonDescription}>
-              すべての作業で安全を最優先にしています。
-            </p>
-          </div>
-        </div>
-      </section> */}
       </div>
     </main>
   );
