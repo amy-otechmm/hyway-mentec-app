@@ -1,6 +1,7 @@
-/**
- * @format
- */
+@use '../../app/styles/functions' as fn;
+@use '../../app/styles/mixin' as mixin;
+@use '../../app/styles/variables';
+
 
 .hero {
   height: 80vh !important;
@@ -32,15 +33,7 @@
   z-index: 2;
 }
 
-.heroTitle {
-  font-size: 6rem;
-  font-weight: bold;
-  letter-spacing: 0.2rem;
-  position: absolute;
-  z-index: 2;
-  bottom: 80px;
-  right: 9%;
-}
+
 
 /* Base styles for dot grids */
 .dots {
@@ -84,15 +77,21 @@
   border-radius: 80px 80px 0 0;
   margin-top: -100px;
   z-index: 5;
+
+  @include mixin.md {
+    border-radius: 40px 40px 0 0;
+    padding: 3rem 1rem 0 0rem;
+    margin-top: -50px;
+  }
 }
 
 .heroTitle {
-  font-size: 6rem;
+  font-size: fn.get-vw(25px);
   font-weight: bold;
   letter-spacing: 0.2rem;
   position: absolute;
   z-index: 2;
-  top: -95px;
+  top: fn.get-vw(-25px);
   right: 9%;
 }
 
@@ -101,9 +100,12 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 220px 1fr;
-
   gap: 4rem;
   align-items: start;
+
+  @include mixin.md {
+    grid-template-columns: 1fr;
+  }
 
 }
 
@@ -114,10 +116,18 @@
 
 .rightColumn {
   min-height: 200vh;
+
+  @include mixin.md {
+    width: 100vw;
+    padding: 2rem;
+    margin-bottom: 300px;
+  }
 }
 
 .speechSection {
-  padding-bottom: 4rem;
+
+
+  @include mixin.md {}
 }
 
 .mainTitle {
@@ -138,10 +148,18 @@
   grid-template-columns: 300px 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
+
+  @include mixin.md {
+    grid-template: revert;
+  }
 }
 
 .imageWrapper {
   /* Add styling for the image container if needed */
+
+  @include mixin.md {
+    text-align: center;
+  }
 }
 
 .textWrapper p {
@@ -157,10 +175,15 @@
 }
 
 .signature {
+  @extend .shippori-mincho-semibold;
   text-align: right;
   font-size: 1.25rem;
   line-height: 1.8;
   font-weight: bold;
+
+  @include mixin.md {
+    text-align: left;
+  }
 }
 
 .profile_section {
@@ -170,7 +193,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -180,6 +203,10 @@
   /* A slightly darker blue for contrast */
   border-radius: 10px;
   padding: 1rem 3rem;
+
+  @include mixin.xs {
+    padding: 0.5rem 1.5rem;
+  }
 }
 
 .infoList {
@@ -197,17 +224,28 @@
   &:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+
+  @include mixin.sm {
+    grid-template: revert;
+  }
 }
 
 .key {
   font-weight: bold;
   font-size: 1rem;
+
+
 }
 
 .value {
   font-size: 1rem;
   line-height: 1.8;
   margin: 0;
+
+  @include mixin.sm {
+    font-size: 0.7rem;
+  }
 }
 
 .history_section {
@@ -238,6 +276,10 @@
   &:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  @include mixin.sm {
+    grid-template: revert;
+  }
 }
 
 .date {
@@ -254,6 +296,10 @@
 
 .event {
   line-height: 1.8;
+
+  @include mixin.sm {
+    font-size: 0.8rem;
+  }
 }
 
 .access_section {

@@ -1,4 +1,8 @@
 @use '../../app/styles/variables';
+@use '../../app/styles/functions' as fn;
+@use '../../app/styles/mixin' as mixin;
+
+
 
 
 .servicePage>section {
@@ -57,12 +61,12 @@
 }
 
 .heroTitle {
-  font-size: 6rem;
+  font-size: fn.get-vw(25px);
   font-weight: bold;
   letter-spacing: 0.2rem;
   position: absolute;
   z-index: 2;
-  top: -95px;
+  top: fn.get-vw(-25px);
   right: 9%;
 }
 
@@ -89,19 +93,29 @@
   border-radius: 80px 80px 0 0;
   margin-top: -100px;
   z-index: 5;
+
+  @include mixin.sm {
+    border-radius: 40px 40px 0 0;
+    padding: 3rem 1rem 0 1rem;
+    margin-top: -50px;
+  }
 }
 
 .introHighlight {
-  color: #00a8e6;
-  font-size: 2rem;
+  color: #ffffff;
+  font-size: fn.get-vw(14px);
   text-align: end;
   padding: 0 100px;
   @extend .shippori-mincho-semibold;
+
+  @include mixin.sm {
+    padding: 0;
+  }
 }
 
 .heroImage {
   width: 100% !important;
-  height: 100vh !important;
+  height: fn.get-vw(300px) !important;
   position: relative;
 
   .image {
@@ -112,6 +126,10 @@
     left: 50% !important;
     transform: translate(-50%, 0px) !important;
     color: transparent !important;
+
+    @include mixin.md {
+      width: 100% !important;
+    }
   }
 }
 

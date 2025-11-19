@@ -7,7 +7,8 @@ import Image from 'next/image';
 import DotGrid from '../ui-accessory/ui-accessory';
 import SideMenu from '@/layout/side-menu';
 import styles from './about-us.module.scss';
-import { IconDotsGrid } from '../icons/icons';
+import { IconDotsGrid, IconSideMenu } from '../icons/icons';
+import { AnimatePresence } from 'motion/react';
 
 const AboutPage = () => {
   const containerRef = useRef(null);
@@ -105,6 +106,18 @@ const AboutPage = () => {
     return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024); // tablet breakpoint
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div ref={containerRef}>
       {/* === Hero Section === */}
@@ -128,22 +141,16 @@ const AboutPage = () => {
           <main className={styles.rightColumn}>
             {/* --- Speech Section --- */}
             <section id='speech' className={styles.speechSection}>
-              <motion.h1
-                className={styles.mainTitle}
-                style={{ y: yHero }}
-                transition={{ type: 'spring', stiffness: 40 }}>
-                スピーチ
-              </motion.h1>
+              <h1 className={styles.mainTitle}>スピーチ</h1>
               {/* <h1 className={styles.mainTitle}>スピーチ</h1> */}
               <h2 className={styles.subtitle}>
                 「責任ある技術と施工」を合言葉に、地元密着型企業を目指して
               </h2>
 
               <div className={styles.contentGrid}>
-                <motion.div
+                <div
                   className={styles.imageWrapper}
-                  style={{ y: yImage }}
-                  transition={{ damping: 25 }}>
+                  >
                   <Image
                     src='/images/about/img_company_01.jpg'
                     alt='会社イメージ'
@@ -151,7 +158,7 @@ const AboutPage = () => {
                     height={420}
                     priority
                   />
-                </motion.div>
+                </div>
 
                 <div className={styles.textWrapper}>
                   <p>

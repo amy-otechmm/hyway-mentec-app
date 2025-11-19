@@ -52,6 +52,11 @@
   /* Removes bullet points */
 }
 
+.navList .indicator.hidden {
+  opacity: 0;
+  width: 0;
+}
+
 
 .navItem {
   cursor: pointer;
@@ -171,7 +176,7 @@
 
   &:hover {
     transform: scale(1.05);
-    background: #2fa2ef;
+    // background: #2fa2ef;
   }
 }
 
@@ -192,6 +197,12 @@
   display: flex;
   justify-content: space-between;
   gap: 4rem;
+
+  @include mixin.sm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .quickLinks h3,
@@ -373,4 +384,54 @@
     }
   }
 
+}
+
+
+/* Mobile icon button */
+.menuIcon {
+  position: absolute;
+  top: 0px;
+  left: 148px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Slide-out menu for mobile */
+.menuMobile {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 150px; // menu width
+  // height: 100vh;
+  background-color: #fff;
+  padding: 1.5rem 0.5rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  border-radius: 0 0 5px 0px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 1.5rem;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+
+        &.activeCompany {
+          padding: 5px;
+          width: 100% !important;
+          display: inline-block;
+        }
+      }
+    }
+  }
 }

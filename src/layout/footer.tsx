@@ -38,13 +38,10 @@ const Footer = () => {
               <Link href='/'>ホーム</Link>
             </li>
             <li>
-              <Link href='/about-us'>会社概要</Link>
-            </li>
-            <li>
               <Link href='/service'>サービス</Link>
             </li>
             <li>
-              <Link href='/about-us'>実績紹介</Link>
+              <Link href='/about-us'>会社概要</Link>
             </li>
             <li>
               <Link href='/contact'>お問い合わせ</Link>
@@ -71,9 +68,7 @@ const Footer = () => {
               <span className={styles.addressIcon}>
                 <IconEmail />
               </span>
-              <a href='mailto:goto@hyway-mentec.com'>
-                goto@hyway-mentec.com
-              </a>
+              <a href='mailto:goto@hyway-mentec.com'>goto@hyway-mentec.com</a>
             </div>
           </div>
         </div>

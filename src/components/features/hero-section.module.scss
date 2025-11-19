@@ -544,6 +544,12 @@
   padding: 4rem 2rem 6rem 2rem;
   position: relative;
   overflow: hidden;
+
+  @include mixin.sm() {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 
 
@@ -728,7 +734,8 @@
 .galleryOuter {
   padding-top: 10vh !important;
   background-color: var(--background);
-  width: 100%;
+  width: 88%;
+  margin: 0 auto;
 
   @include mixin.sm() {
     padding-top: 5vh !important;
@@ -834,7 +841,7 @@
   color: #ffffff;
   padding-bottom: 5rem !important;
 
-  @include mixin.sm() {
+  @include mixin.md() {
     height: 2500px !important;
     padding: 10rem 2rem;
   }
@@ -857,7 +864,7 @@
   right: -350px;
   text-align: start;
 
-  @include mixin.sm() {
+  @include mixin.md() {
     right: 0;
     top: 0;
   }
@@ -901,8 +908,8 @@
   gap: 50px;
   flex-direction: column;
 
-  @include mixin.sm() {
-    
+  @include mixin.md() {
+
     padding-top: 100px;
   }
 
@@ -913,7 +920,7 @@
     flex-direction: row;
     position: relative;
 
-    @include mixin.sm() {
+    @include mixin.md() {
       flex-direction: column;
       margin-right: 0;
     }
@@ -924,7 +931,7 @@
     flex-direction: row;
     margin-left: 40%;
 
-    @include mixin.sm() {
+    @include mixin.md() {
       flex-direction: column;
       margin-left: 0%;
     }

@@ -12,8 +12,8 @@ const NavBar = () => {
   const navLinks = [
     { name: 'ホームページ', href: '/' },
     { name: 'サービス', href: '/service' },
-    { name: '会社', href: '/about-us' },
-    { name: '連絡先', href: '/contact' },
+    { name: '会社概要', href: '/about-us' },
+    { name: 'お問い合わせ', href: '/contact' },
   ];
 
   const pathname = usePathname();
@@ -30,6 +30,8 @@ const NavBar = () => {
     const currentIndex = navLinks.findIndex((link) => link.href === pathname);
     if (currentIndex !== -1) {
       setActiveIndex(currentIndex);
+    } else {
+      setActiveIndex(-1);
     }
   }, [pathname]);
 
@@ -52,6 +54,7 @@ const NavBar = () => {
   }, [lastScrollY]);
 
   const moveIndicator = (index: number) => {
+    if (index === -1) return;
     const currentItem = itemsRef.current[index];
     const indicator = indicatorRef.current;
     if (!currentItem || !indicator) return;
@@ -114,7 +117,11 @@ const NavBar = () => {
                   <Link href={link.href}>{link.name}</Link>
                 </li>
               ))}
-              <span className={styles.indicator} ref={indicatorRef}></span>
+              <span
+                className={`${styles.indicator} ${
+                  activeIndex === -1 ? styles.hidden : ''
+                }`}
+                ref={indicatorRef}></span>
             </ul>
 
             {/* MOBILE MENU */}

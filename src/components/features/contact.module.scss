@@ -5,6 +5,8 @@
  */
 
 @use '../../app/styles/variables';
+@use '../../app/styles/mixin' as mixin;
+@use '../../app/styles/functions' as fn;
 
 .wrapper {
   padding: 6rem 2rem 22rem 2rem;
@@ -26,12 +28,18 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 3rem;
+
+  @include mixin.sm {
+    flex-direction: column;
+  }
 }
 
 .title {
   font-size: 6rem;
   font-weight: bold;
   line-height: 1;
+
+
 }
 
 .verticalText {
@@ -47,10 +55,19 @@
   color: #154394;
   @extend .shippori-mincho-medium;
 
+  @include mixin.sm {
+    writing-mode: horizontal-tb;
+  }
+
   .verLine {
     width: 2px;
     height: 200px;
     background-color: #154394;
+
+    @include mixin.sm {
+      width: 200px;
+      height: 2px;
+    }
   }
 
   .verJP {
@@ -84,6 +101,11 @@
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 1rem;
+
+  @include mixin.sm {
+    grid-template: revert;
+    gap: 20px;
+  }
 }
 
 .label {
@@ -105,6 +127,10 @@
   font-size: 1rem;
   width: 100%;
   padding: 0.5rem;
+
+  @include mixin.sm {
+    padding: 0.5rem 0;
+  }
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.5);
@@ -167,4 +193,30 @@
   position: absolute;
   bottom: 30%;
   left: 30%;
+}
+
+
+.successMessage {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.goBackButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #0051a3;
+  }
+
 }
