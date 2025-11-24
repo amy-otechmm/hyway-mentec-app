@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
         <div className={styles.privacyContent}>
           {/* <small>(PRIVACY POLICY)</small> */}
           <p className={styles.intro}>
-             株式会社ハイウェイメンテック業(以下「当社」といいます)は、以下の方針に基づき、個人を識別しうる情報（以下「個人情報」といい
+            ハイウェイメンテック株式会社(以下「当社」といいます)は、以下の方針に基づき、個人を識別しうる情報（以下「個人情報」といい
             ます）を取り扱わせていただきます。
           </p>
           <div className={styles.policy}>

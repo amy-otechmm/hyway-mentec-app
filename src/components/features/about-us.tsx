@@ -223,7 +223,7 @@ const AboutPage = () => {
 
             {/* --- Access --- */}
             <section id='access' className={styles.access_section}>
-              <h1 className={styles.title}>アクセス方法</h1>
+              <h1 className={styles.title}>アクセス</h1>
               <div className={styles.mapWrapper}>
                 <iframe
                   className={styles.mapFrame}

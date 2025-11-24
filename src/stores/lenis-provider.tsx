@@ -13,6 +13,7 @@ export default function LenisProvider({ children }: LenisProviderProps) {
     const lenis = new Lenis({
       duration: 1.5,
       smoothWheel: true,
+     
     });
 
     // ✅ expose globally

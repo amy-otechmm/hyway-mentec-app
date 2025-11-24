@@ -39,7 +39,9 @@
   font-weight: bold;
   line-height: 1;
 
-
+  @include mixin.sm {
+    opacity: 0.1;
+  }
 }
 
 .verticalText {
@@ -220,3 +222,4 @@
   }
 
 }
+

@@ -1,21 +1,21 @@
 /** @format */
 
 import Image from 'next/image';
-import styles from './product-card.module.scss'; // We will create this file next
+import styles from './product-card.module.scss';
+import { motion } from 'framer-motion';
 
-// Define the structure for a feature
 interface Feature {
   label: string;
   description: string;
 }
 
-// Define the props for the card
 interface ProductCardProps {
   title: string;
   company: string;
   imageUrl: string;
   imageAlt: string;
   features: Feature[];
+  index: number; // 👈 NEW
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -24,10 +24,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
   imageAlt,
   features,
+  index,
 }) => {
   return (
-    <div className={styles.card}>
-      {/* 1. Image */}
+    <motion.div
+      className={styles.card}
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.8,
+        delay: index * 0.3, // 👈 appears one by one
+        ease: 'easeOut',
+      }}
+      viewport={{ once: true, amount: 0.3 }} // animate only once
+    >
       <div className={styles.imageWrapper}>
         <Image
           src={imageUrl}
@@ -38,22 +48,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
         />
       </div>
 
-      {/* 2. Content */}
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.company}>{company}</p>
 
-        {/* 3. Features List */}
         <ul className={styles.featuresList}>
-          {features.map((feature, index) => (
-            <li key={index} className={styles.featureItem}>
+          {features.map((feature, idx) => (
+            <li key={idx} className={styles.featureItem}>
               <strong className={styles.featureLabel}>{feature.label}</strong>
               <p className={styles.featureDescription}>{feature.description}</p>
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

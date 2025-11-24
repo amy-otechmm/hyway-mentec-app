@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
   const navLinks = [
-    { name: 'ホームページ', href: '/' },
+    { name: 'ホーム', href: '/' },
     { name: 'サービス', href: '/service' },
     { name: '会社概要', href: '/about-us' },
     { name: 'お問い合わせ', href: '/contact' },

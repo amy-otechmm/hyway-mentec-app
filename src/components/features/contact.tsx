@@ -9,10 +9,10 @@ import { IconArrowRight, IconMailSuccess } from '../icons/icons';
 const ContactForm = () => {
   // State to hold form data
   const [formData, setFormData] = useState({
+    companyName: '',
     name: '',
     email: '',
-    city: '',
-    prefecture: '',
+    phone: '',
     message: '',
     agreed: false,
   });
@@ -54,10 +54,10 @@ const ContactForm = () => {
       if (data.success) {
         setSuccess(true);
         setFormData({
+          companyName: '',
           name: '',
           email: '',
-          city: '',
-          prefecture: '',
+          phone: '',
           message: '',
           agreed: false,
         });
@@ -98,6 +98,23 @@ const ContactForm = () => {
             </p>
 
             <form onSubmit={handleSubmit} className={styles.form}>
+              {/* Company Name */}
+              <div className={styles.formGroup}>
+                <label htmlFor='companyName' className={styles.label}>
+                  会社名<span className={styles.requiredMark}>※</span>
+                </label>
+                <input
+                  type='text'
+                  id='companyName'
+                  name='companyName'
+                  placeholder='例：山田太郎'
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  required
+                  className={styles.input}
+                />
+              </div>
+
               {/* Name */}
               <div className={styles.formGroup}>
                 <label htmlFor='name' className={styles.label}>
@@ -132,33 +149,17 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* Prefecture */}
+              {/* phone */}
               <div className={styles.formGroup}>
-                <label htmlFor='prefecture' className={styles.label}>
-                  都道府県
+                <label htmlFor='phone' className={styles.label}>
+                  電話番号
                 </label>
                 <input
                   type='text'
-                  id='prefecture'
-                  name='prefecture'
-                  placeholder='例：大分県'
-                  value={formData.prefecture}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-              </div>
-
-              {/* City */}
-              <div className={styles.formGroup}>
-                <label htmlFor='city' className={styles.label}>
-                  市区町村
-                </label>
-                <input
-                  type='text'
-                  id='city'
-                  name='city'
-                  placeholder='例：大分市'
-                  value={formData.city}
+                  id='phone'
+                  name='phone'
+                  placeholder='例：000-367-7280'
+                  value={formData.phone}
                   onChange={handleChange}
                   className={styles.input}
                 />

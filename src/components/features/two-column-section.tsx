@@ -12,6 +12,7 @@ type Props = {
   imageUrl: string;
   imageAlt: string;
   imagePosition?: 'left' | 'right';
+  id:string;
 };
 
 const TwoColumnSection: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const TwoColumnSection: React.FC<Props> = ({
   imageUrl,
   imageAlt,
   imagePosition = 'right', // Default to image on the right
+  id
 }) => {
   // Dynamically set the class for layout direction
   const sectionClasses = `${styles.section} ${
@@ -27,7 +29,7 @@ const TwoColumnSection: React.FC<Props> = ({
   }`;
 
   return (
-    <section className={sectionClasses}>
+    <section className={sectionClasses} id={id}>
       <div className={styles.textContainer}>
         <div className={styles.titleWrapper}>
          <IconStart/> {/* Placeholder for the icon */}

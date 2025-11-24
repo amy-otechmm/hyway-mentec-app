@@ -179,7 +179,7 @@
 ========================================
 */
 .bridgeContainer {
-  height: 80vh !important;
+  height: 90vh !important;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -192,32 +192,51 @@
   background-position: center;
   color: white;
   text-align: left;
+  padding: 0 100px
 }
 
 .bridgeContent {
   max-width: 100%;
   padding: 2rem;
   z-index: 2;
+
+  @include mixin.sm {
+    padding: 0rem;
+  }
 }
 
 .bridgeLogo {
-  @extend .shippori-mincho-regular;
+  font-size: 24px;
+  @extend .shippori-mincho-semibold;
+
+  @include mixin.es {
+    font-size: 16px;
+
+  }
 }
 
 .bridgeTitle {
-  @extend .shippori-mincho-medium;
+  @extend .shippori-mincho-bold;
   font-size: fn.get-vw(14px);
   margin-bottom: 1rem;
   letter-spacing: 3px;
   line-height: 2;
+  color: #a2cdf8;
+
+  @include mixin.sm {
+    font-size: 1.3rem;
+  }
 }
 
 .bridgeSubtitle {
   font-size: 1.1rem;
-
   line-height: 1.8;
   max-width: 700px;
   padding-top: 1rem;
+
+  @include mixin.sm {
+    font-size: .9rem;
+  }
 }
 
 .break_line {
@@ -278,7 +297,7 @@
   gap: 1rem;
 
   @include mixin.md() {
-    font-size: fn.get-vw(12px);
+    font-size: 5.5vw;
   }
 
 }
@@ -404,6 +423,7 @@
   font-size: 1rem;
   line-height: 1.7;
   color: #e0e0e0;
+  padding-left: 22px;
 
   @include mixin.sm() {
     font-size: fn.get-vw(12px);
@@ -424,6 +444,11 @@
   color: var(--secondary);
   letter-spacing: 0.5rem;
   /* Space out the letters */
+
+
+  @include mixin.sm {
+    font-size: 16px;
+  }
 }
 
 .galleryContainer {
@@ -505,6 +530,7 @@
 
 .featuredContainerOne {
   background-color: var(--background);
+  position: relative;
 
 
   @include mixin.md() {}
@@ -514,7 +540,7 @@
 .featuredContainerTwo {
 
   background-color: var(--background);
-  padding-bottom: 200px !important;
+  // padding-bottom: 200px !important;
   border-radius: 0 0 80px 80px;
   margin-bottom: -100px;
   position: relative;
@@ -734,7 +760,7 @@
 .galleryOuter {
   padding-top: 10vh !important;
   background-color: var(--background);
-  width: 88%;
+  // width: 88%;
   margin: 0 auto;
 
   @include mixin.sm() {
@@ -744,13 +770,13 @@
 
 
   .gallery_container {
-    height: 300vh !important;
+    height: 200vh !important;
     position: relative;
     background-color: var(--background);
 
     .sticky {
       position: sticky;
-      overflow: hidden;
+      // overflow: hidden;
       top: 0;
       height: 100vh;
 
@@ -772,6 +798,22 @@
 
           img {
             object-fit: cover;
+          }
+        }
+
+        &:nth-of-type(1) {
+          .imageContainer {
+            img {
+              position: absolute !important;
+              height: 100% !important;
+              width: 97% !important;
+              left: 50% !important;
+              top: 0 !important;
+              right: 0 !important;
+              bottom: 0 !important;
+              color: transparent !important;
+              transform: translate(-50%, 0px) !important;
+            }
           }
         }
 
@@ -842,7 +884,7 @@
   padding-bottom: 5rem !important;
 
   @include mixin.md() {
-    height: 2500px !important;
+    height: 2200px !important;
     padding: 10rem 2rem;
   }
 
@@ -901,6 +943,10 @@
   flex-direction: column;
   gap: 2rem;
 
+  @include mixin.md {
+    gap: 0;
+  }
+
 }
 
 .row {
@@ -909,7 +955,6 @@
   flex-direction: column;
 
   @include mixin.md() {
-
     padding-top: 100px;
   }
 
@@ -934,6 +979,7 @@
     @include mixin.md() {
       flex-direction: column;
       margin-left: 0%;
+      padding-top: 50px;
     }
 
   }

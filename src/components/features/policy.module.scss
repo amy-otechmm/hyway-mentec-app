@@ -15,8 +15,12 @@
     font-size: 3rem;
     font-weight: bold;
     padding: 2rem 0;
-    color: var((--primary-foreground));
+    color: #ffffff;
     @extend .shippori-mincho-semibold;
+
+    @include mixin.es{
+      font-size: 2rem;
+    }
   }
 
   h1 {
@@ -28,11 +32,11 @@
   }
 
   @include mixin.lg {
-    padding: 100px 70px;
+    padding: 100px 70px 400px;
   }
 
   @include mixin.sm {
-    padding: 100px 30px;
+    padding: 100px 30px 400px;
 
     h1 {
       font-size: 1.3rem;
@@ -41,7 +45,7 @@
   }
 
   .privacyContent {
-    color: var(--txt-color);
+    color: #b5cfe8;
 
     .intro {
       margin-bottom: 30px;
@@ -55,7 +59,7 @@
         background-color: #c5e7ff;
         padding: 5px 10px;
         border-radius: 2px;
-        color: var(--primary-foreground);
+        color: var(--primary-foreground) !important;
       }
 
       .content {

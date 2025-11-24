@@ -43,6 +43,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  a {
+    @include mixin.es {
+      display: none;
+    }
+  }
 }
 
 .navList {
@@ -141,6 +147,10 @@
 .contactTitle {
   font-size: 4rem;
   font-weight: bold;
+
+  @include mixin.es {
+    font-size: 3rem;
+  }
 }
 
 .contactSubtitle {
@@ -318,10 +328,12 @@
 
   .companyName {
     font-size: 1rem;
+
   }
 
   .companyName a {
     font-size: 1rem;
+
   }
 
   .hamburger {
@@ -351,9 +363,9 @@
 .mobileMenu {
   position: absolute;
   top: 100%;
-  right: 0;
+  right: 10px;
   width: 190px;
-  background: rgba(255, 255, 255, 0.95);
+  background-color: #c5e2ff;
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -362,12 +374,18 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   list-style: none;
 
+  li {
+    padding: 10px 0;
+  }
+
   li a {
 
     font-size: 1rem;
     color: #333;
     font-weight: bold;
     text-decoration: none;
+    color: var(--primary-foreground);
+
 
     &:hover {
       color: #006edc;
@@ -377,6 +395,7 @@
   @include mixin.es {
     .companyName {
       font-size: 0.9rem;
+
     }
 
     .mobileMenu li a {
@@ -420,6 +439,7 @@
 
     li {
       margin-bottom: 1.5rem;
+      padding: 10px 0;
 
       a {
         text-decoration: none;
@@ -433,5 +453,13 @@
         }
       }
     }
+  }
+}
+
+
+.contactNo {
+  @include mixin.es {
+    display: flex;
+    flex-direction: column;
   }
 }

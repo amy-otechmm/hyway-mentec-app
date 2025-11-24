@@ -23,9 +23,9 @@ const Footer = () => {
               当社へのご意見、お取引に関するご相談等、お問い合わせページよりお気軽にご連絡ください。
             </p>
           </div>
-          <div className={styles.contactButton}>
+          <Link href={"/contact"} className={styles.contactButton}>
             <span>査定面談</span> <IconArrowRight className={styles.arrow} />
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -62,7 +62,9 @@ const Footer = () => {
               <span className={styles.addressIcon}>
                 <IconPhone />
               </span>
-              <span>TEL: 052-364-7280 FAX: 052-364-7281</span>
+              <div className={styles.contactNo}>
+                <span> TEL: 052-364-7280</span> <span> FAX: 052-364-7281</span>
+              </div>
             </div>
             <div className={styles.addressItem}>
               <span className={styles.addressIcon}>
@@ -77,8 +79,7 @@ const Footer = () => {
       {/* ===== Bottom Copyright Section ===== */}
       <div className={styles.bottomSection}>
         © 2025 Highway-Mentec Co., Ltd. All Rights Reserved |
-        <Link href='/privacy-policy'>Privacy Policy</Link> |
-        <Link href='/sitemap'>Sitemap</Link>
+        <Link href='/privacy-policy'>Privacy Policy</Link>
       </div>
     </footer>
   );

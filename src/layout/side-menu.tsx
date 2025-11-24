@@ -86,7 +86,7 @@ const SideMenu = () => {
                         speech: 'スピーチ',
                         profile: '会社概要',
                         history: '沿革',
-                        access: 'アクセス方法',
+                        access: 'アクセス',
                       }[id]
                     }
                   </Link>
@@ -109,7 +109,7 @@ const SideMenu = () => {
                       speech: 'スピーチ',
                       profile: '会社概要',
                       history: '沿革',
-                      access: 'アクセス方法',
+                      access: 'アクセス',
                     }[id]
                   }
                 </Link>

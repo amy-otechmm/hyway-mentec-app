@@ -10,13 +10,14 @@ import { useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import TwoColumnSection from './two-column-section';
 import ProductCard from '../ui-accessory/product-card';
+import { usePathname } from 'next/navigation';
 
 const ServicePage = () => {
   const productData = [
     {
       title: 'Spider Panel',
       company: '株式会社タカミヤ',
-      imageUrl: '/images/service/product-card-1.png', 
+      imageUrl: '/images/service/product-card-1.png',
       imageAlt: 'Spider Panel scaffolding',
       features: [
         {
@@ -87,6 +88,23 @@ const ServicePage = () => {
   // Wait until the DOM is hydrated before using the ref
   useEffect(() => {
     setIsReady(true);
+  }, []);
+
+  const [scrollToParam, setScrollToParam] = useState<string | null>(null);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const target = searchParams.get('scrollTo');
+    if (target) {
+      setScrollToParam(target);
+      const el = document.getElementById(target);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, []);
 
   // Define scroll and transform values *after* hydration
@@ -164,7 +182,7 @@ const ServicePage = () => {
             imageUrl='/images/service/about-img-1.png' /* Path from 'public' folder */
             imageAlt='Underside of a large bridge'
             imagePosition='right' /* Image on the right */
-          >
+            id='01'>
             {/* Pass the text as children */}
             <p>
               足場を架設するなるべく近くにパーフェクトビー
@@ -185,7 +203,7 @@ const ServicePage = () => {
             imageUrl='/images/service/about-img-2.png' /* Path from 'public' folder */
             imageAlt='City highway junction at sunset'
             imagePosition='left' /* Image on the left */
-          >
+            id='02'>
             <p>
               径間内に鉄道・大きな交叉点・大きな支障物があるときに
               採用する工法です。基本的には一括吊上げ吊下げ工法と
@@ -203,9 +221,10 @@ const ServicePage = () => {
         {/* ===== 4. NEW: Product Grid Section ===== */}
         <section className={styles.productGridSection}>
           <div className={styles.productGrid}>
-            {productData.map((product) => (
+            {productData.map((product, index) => (
               <ProductCard
                 key={product.title}
+                index={index} // 👈 add this
                 title={product.title}
                 company={product.company}
                 imageUrl={product.imageUrl}
@@ -226,7 +245,7 @@ const ServicePage = () => {
             </h2>
             <div className={styles.unitImage}>
               <Image
-                src='/images/service/bridge-img1.png' 
+                src='/images/service/bridge-img1.png'
                 alt='Unit System bridge scaffolding'
                 fill
                 style={{ objectFit: 'cover' }}
