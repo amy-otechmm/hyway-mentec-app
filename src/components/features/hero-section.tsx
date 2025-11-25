@@ -121,7 +121,7 @@ const HeroSection = () => {
                       },
                     }),
                   }}>
-                  足場ソリューションに おける 信頼さんる パートナーです。
+                  足場ソリューションに おける 信頼される パートナーです。
                 </SplitText>
               </motion.div>
             </AnimatePresence>

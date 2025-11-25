@@ -39,6 +39,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   color: var(--primary-foreground);
+  word-break: keep-all;
 
   display: flex;
   align-items: center;
@@ -46,7 +47,8 @@
 
   a {
     @include mixin.es {
-      display: none;
+      // display: none;
+      font-size: 1.1rem;
     }
   }
 }

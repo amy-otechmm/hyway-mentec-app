@@ -92,7 +92,7 @@ const NavBar = () => {
                 height={45}
                 priority
               />
-              <Link href='/'>ハイウェイメンテック株式会社</Link>
+              <Link href='/'>ハイウェイ メンテック 株式会社</Link>
             </div>
 
             {/* HAMBURGER BUTTON */}
