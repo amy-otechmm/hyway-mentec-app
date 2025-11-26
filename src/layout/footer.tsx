@@ -70,7 +70,7 @@ const Footer = () => {
               <span className={styles.addressIcon}>
                 <IconEmail />
               </span>
-              <a href='mailto:goto@hyway-mentec.com'>goto@hyway-mentec.com</a>
+              <a href='mailto:info@hyway-mentec.com'>goto@hyway-mentec.com</a>
             </div>
           </div>
         </div>

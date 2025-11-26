@@ -199,6 +199,7 @@
   max-width: 100%;
   padding: 2rem;
   z-index: 2;
+  text-shadow: 1px 3px 7px #00000096;
 
   @include mixin.sm {
     padding: 0rem;
@@ -377,6 +378,7 @@
   @include mixin.sm() {
     gap: 0;
     padding: 2.5rem 0.5rem 2.5rem 1.5rem;
+    flex-direction: column-reverse;
   }
 
   /* The "double border" effect using a pseudo-element */
@@ -433,6 +435,11 @@
 .verticalTextContainer {
   display: flex;
   @extend .shippori-mincho-medium;
+
+  @include mixin.sm {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
 }
 
 .verticalText {
@@ -447,7 +454,10 @@
 
 
   @include mixin.sm {
-    font-size: 16px;
+    font-size: 18px;
+    writing-mode: unset;
+    letter-spacing: 0.2rem;
+
   }
 }
 
