@@ -17,7 +17,7 @@ const ServicePage = () => {
     {
       title: 'Spider Panel',
       company: '株式会社タカミヤ',
-      imageUrl: '/images/service/product-card-1.png',
+      imageUrl: '/images/service/service_product_2.jpg',
       imageAlt: 'Spider Panel scaffolding',
       features: [
         {
@@ -38,7 +38,7 @@ const ServicePage = () => {
     {
       title: 'VMAX',
       company: '株式会社タカミヤ',
-      imageUrl: '/images/service/product-card-2.png', // You need to add this image
+      imageUrl: '/images/service/service_product_3.jpg',
       imageAlt: 'VMAX scaffolding',
       features: [
         {
@@ -61,7 +61,7 @@ const ServicePage = () => {
     {
       title: 'クイックデッキ',
       company: '日綜産業株式会社',
-      imageUrl: '/images/service/product-card-3.png', // You need to add this image
+      imageUrl: '/images/service/service_product_2.jpg', // You need to add this image
       imageAlt: 'Quick Deck scaffolding',
       features: [
         {

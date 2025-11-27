@@ -128,7 +128,7 @@ const HeroSection = () => {
           </div>
           <div className={styles.break_line}></div>
           <p className={styles.bridgeSubtitle}>
-            長年の専門知識を活かし、安全第一の実践、最新技術、そして熟練の職人技を融合させ、長期にわたるプロジェクトを実施します。
+            揺るぎない技術で、空中に大地を創る。橋梁メンテナンスを支える、 専門足場のエキスパートです。
           </p>
         </div>
       </section>
