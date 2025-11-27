@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
         ハイウェイメンテック株式会社<br>
         〒454-0826 名古屋市中川区小本本町一丁目70番地<br>
         TEL: 052-364-7280 / FAX: 052-364-7281<br>
-        Email: goto@hyway-mentec.com<br>
+        Email: info@hyway-mentec.com<br>
         URL: <a href="https://www.hyway-mentec.com/" target="_blank">https://www.hyway-mentec.com/</a>
       </p>
     </div>
@@ -133,7 +133,7 @@ export async function POST(req: NextRequest) {
 
             〒454-0826 名古屋市中川区小本本町一丁目70番地<br>
             TEL: 052-364-7280 / FAX: 052-364-7281<br>
-            Email: goto@hyway-mentec.com<br>
+            Email: info@hyway-mentec.com<br>
             （※運用時に使用するメールアドレスは変更の可能性があります）<br>
             URL: <a href="https://www.hyway-mentec.com" target="_blank">https://www.hyway-mentec.com</a><br>
             ────────────────────────

@@ -100,14 +100,14 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className={styles.form}>
               {/* Company Name */}
               <div className={styles.formGroup}>
-                <label htmlFor='companyName' className={styles.label}>
+                <label htmlFor="companyName" className={styles.label}>
                   会社名<span className={styles.requiredMark}>※</span>
                 </label>
                 <input
-                  type='text'
-                  id='companyName'
-                  name='companyName'
-                  placeholder='例：山田太郎'
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  placeholder="例：山田太郎"
                   value={formData.companyName}
                   onChange={handleChange}
                   required
@@ -117,14 +117,14 @@ const ContactForm = () => {
 
               {/* Name */}
               <div className={styles.formGroup}>
-                <label htmlFor='name' className={styles.label}>
+                <label htmlFor="name" className={styles.label}>
                   お名前<span className={styles.requiredMark}>※</span>
                 </label>
                 <input
-                  type='text'
-                  id='name'
-                  name='name'
-                  placeholder='例：山田太郎'
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="例：山田太郎"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -134,14 +134,14 @@ const ContactForm = () => {
 
               {/* Email */}
               <div className={styles.formGroup}>
-                <label htmlFor='email' className={styles.label}>
+                <label htmlFor="email" className={styles.label}>
                   メールアドレス<span className={styles.requiredMark}>※</span>
                 </label>
                 <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='例：abcd@sample.jp'
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="例：abcd@sample.jp"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -151,14 +151,14 @@ const ContactForm = () => {
 
               {/* phone */}
               <div className={styles.formGroup}>
-                <label htmlFor='phone' className={styles.label}>
+                <label htmlFor="phone" className={styles.label}>
                   電話番号
                 </label>
                 <input
-                  type='text'
-                  id='phone'
-                  name='phone'
-                  placeholder='例：000-367-7280'
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="例：000-367-7280"
                   value={formData.phone}
                   onChange={handleChange}
                   className={styles.input}
@@ -167,32 +167,33 @@ const ContactForm = () => {
 
               {/* Message */}
               <div className={styles.formGroup}>
-                <label htmlFor='message' className={styles.label}>
+                <label htmlFor="message" className={styles.label}>
                   質問・ご要望<span className={styles.requiredMark}>※</span>
                 </label>
                 <textarea
-                  id='message'
-                  name='message'
-                  placeholder='ご質問・ご要望をご入力ください。'
+                  id="message"
+                  name="message"
+                  placeholder="ご質問・ご要望をご入力ください。"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className={styles.textarea}></textarea>
+                  className={styles.textarea}
+                ></textarea>
               </div>
 
               {/* Privacy Policy Agreement */}
               <div className={styles.checkboxWrapper}>
                 <input
-                  type='checkbox'
-                  id='agreed'
-                  name='agreed'
+                  type="checkbox"
+                  id="agreed"
+                  name="agreed"
                   checked={formData.agreed}
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor='agreed'>
+                <label htmlFor="agreed">
                   送信前に、当社の
-                  <a href='/privacy-policy' target='_blank'>
+                  <a href="/privacy-policy" target="_blank">
                     プライバシーポリシー
                   </a>
                   をご確認ください。
@@ -201,8 +202,8 @@ const ContactForm = () => {
 
               {/* Submit Button */}
               <div className={styles.submitButtonWrapper}>
-                <button type='submit' className={styles.submitButton}>
-                  <span>{loading ? '送信中...' : '提出する'} </span>
+                <button type="submit" className={styles.submitButton}>
+                  <span>{loading ? '送信中...' : '送信する'} </span>
                   <IconArrowRight className={styles.arrow} />
                 </button>
               </div>

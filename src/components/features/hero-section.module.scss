@@ -438,8 +438,8 @@
   @extend .shippori-mincho-medium;
 
   @include mixin.sm {
-    flex-direction: column;
-    padding-bottom: 30px;
+    flex-direction: column-reverse;
+    padding-bottom: 30px
   }
 }
 

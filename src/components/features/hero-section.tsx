@@ -75,9 +75,10 @@ const HeroSection = () => {
   return (
     <main className={styles.heroContainer}>
       <section
-        className={classNames([styles.bridgeContainer, styles.heroSticky])}>
-        <IconDotsGrid className='right_dots' />
-        <IconDotsGrid className='left_dots' />
+        className={classNames([styles.bridgeContainer, styles.heroSticky])}
+      >
+        <IconDotsGrid className="right_dots" />
+        <IconDotsGrid className="left_dots" />
 
         <div className={styles.bridgeContent}>
           <p className={styles.bridgeLogo}>ハイウェイメンテックは</p>
@@ -87,10 +88,11 @@ const HeroSection = () => {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 style={{ height: '0em' }}
-                exit={{ opacity: 0 }}>
+                exit={{ opacity: 0 }}
+              >
                 <SplitText
                   initial={{ y: '100%' }}
-                  animate='visible'
+                  animate="visible"
                   variants={{
                     visible: (i: number) => ({
                       y: 0,
@@ -98,7 +100,8 @@ const HeroSection = () => {
                         delay: i * 0.04,
                       },
                     }),
-                  }}>
+                  }}
+                >
                   橋梁建設、 高速道路保守、
                 </SplitText>
               </motion.div>
@@ -109,10 +112,11 @@ const HeroSection = () => {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 style={{ lineHeight: '1.3' }}
-                exit={{ opacity: 0 }}>
+                exit={{ opacity: 0 }}
+              >
                 <SplitText
                   initial={{ y: '100%' }}
-                  animate='visible'
+                  animate="visible"
                   variants={{
                     visible: (i: number) => ({
                       y: 0,
@@ -120,7 +124,8 @@ const HeroSection = () => {
                         delay: i * 0.09,
                       },
                     }),
-                  }}>
+                  }}
+                >
                   足場ソリューションに おける 信頼される パートナーです。
                 </SplitText>
               </motion.div>
@@ -128,7 +133,9 @@ const HeroSection = () => {
           </div>
           <div className={styles.break_line}></div>
           <p className={styles.bridgeSubtitle}>
-            揺るぎない技術で、空中に大地を創る。橋梁メンテナンスを支える、 専門足場のエキスパートです。
+            揺るぎない技術で、空中に大地を創る。
+            <br />
+            橋梁メンテナンスを支える、専門足場のエキスパートです。
           </p>
         </div>
       </section>
@@ -136,7 +143,8 @@ const HeroSection = () => {
       <div className={styles.scrollWrapper}>
         <motion.section
           style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '-100%']) }}
-          className={styles.whatWeDoContainer}>
+          className={styles.whatWeDoContainer}
+        >
           <div className={styles.whatWeDoContent}>
             <div className={styles.whatWeDoSubheading}>
               <IconStart className={styles.icon_star} />
@@ -234,9 +242,10 @@ const HeroSection = () => {
                       scale,
                       y: translateY,
                     }}
-                    className={styles.el}>
+                    className={styles.el}
+                  >
                     <div className={styles.imageContainer}>
-                      <Image src={src} fill alt='image' blurDataURL='blur' />
+                      <Image src={src} fill alt="image" blurDataURL="blur" />
                     </div>
                   </motion.div>
                 );
@@ -256,18 +265,20 @@ const HeroSection = () => {
             </div>
             <Link
               href={'/service/?scrollTo=01'}
-              className={styles.contactButton}>
-              <span>査定面談</span> <IconArrowRight className={styles.arrow} />
+              className={styles.contactButton}
+            >
+              <span>工法について</span>
+              <IconArrowRight className={styles.arrow} />
             </Link>
           </div>
         </section>
         <section className={styles.featuredContainerTwo}>
           <div className={styles.featuredImageWrapper}>
             <Image
-              src='/images/hero/gallery-img-5.webp'
-              alt='ヤモリ工法'
+              src="/images/hero/gallery-img-5.webp"
+              alt="ヤモリ工法"
               fill
-              objectFit='cover'
+              objectFit="cover"
               // sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
           </div>
@@ -282,15 +293,17 @@ const HeroSection = () => {
             <Link
               href={'/service/?scrollTo=02'}
               // onClick={() => router.push('/service#02')}
-              className={styles.contactButton}>
-              <span>査定面談</span> <IconArrowRight className={styles.arrow} />
+              className={styles.contactButton}
+            >
+              <span>工法について</span>
+              <IconArrowRight className={styles.arrow} />
             </Link>
           </div>
         </section>
 
         <section className={styles.methodsSection}>
-          <IconDotsGrid className='right_dots' />
-          <IconDotsGrid className='left_dots' />
+          <IconDotsGrid className="right_dots" />
+          <IconDotsGrid className="left_dots" />
           <div className={styles.bottomLeftDots}></div>
 
           <div className={styles.container}>
@@ -298,13 +311,13 @@ const HeroSection = () => {
               <div className={classNames([styles.row, styles.topRow])}>
                 <Card
                   icon={<IconEarth />}
-                  title='持続可能な取り組み'
-                  description='廃棄物削減・環境配慮・資材最適化を重視しています。'
+                  title="持続可能な取り組み"
+                  description="廃棄物削減・環境配慮・資材最適化を重視しています。"
                 />
                 <Card
                   icon={<IconDelivery />}
-                  title='効率的かつ納期厳守'
-                  description='事前組立と専用車両で工期短縮、渋滞を緩和します。'
+                  title="効率的かつ納期厳守"
+                  description="事前組立と専用車両で工期短縮、渋滞を緩和します。"
                 />
                 <div className={styles.titleWrapper}>
                   <p className={styles.title}>
@@ -317,13 +330,13 @@ const HeroSection = () => {
               <div className={styles.row}>
                 <Card
                   icon={<IconCrane />}
-                  title='卓越したエンジニアリング'
-                  description='先進工法を駆使し、複雑な環境に最適な解決策を提供します。'
+                  title="卓越したエンジニアリング"
+                  description="先進工法を駆使し、複雑な環境に最適な解決策を提供します。"
                 />
                 <Card
                   icon={<IconWorker />}
-                  title='安全第一'
-                  description='すべての作業で安全を最優先にしています。'
+                  title="安全第一"
+                  description="すべての作業で安全を最優先にしています。"
                 />
               </div>
             </div>
