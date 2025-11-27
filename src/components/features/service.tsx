@@ -61,7 +61,7 @@ const ServicePage = () => {
     {
       title: 'クイックデッキ',
       company: '日綜産業株式会社',
-      imageUrl: '/images/service/service_product_2.jpg', // You need to add this image
+      imageUrl: '/images/service/service_product_1.jpg', // You need to add this image
       imageAlt: 'Quick Deck scaffolding',
       features: [
         {
@@ -119,8 +119,8 @@ const ServicePage = () => {
     <main className={styles.servicePage}>
       {/* ===== 1. Hero Section ===== */}
       <section className={classNames([styles.hero, styles.heroSticky])}>
-        <IconDotsGrid className='right_dots' />
-        <IconDotsGrid className='left_dots' />
+        <IconDotsGrid className="right_dots" />
+        <IconDotsGrid className="left_dots" />
       </section>
 
       <div className={styles.scrollWrapper}>
@@ -136,8 +136,8 @@ const ServicePage = () => {
           </p>
           <div className={styles.heroImage}>
             <Image
-              src='/images/service/mask-group-1.png'
-              alt='サービスイメージ'
+              src="/images/service/mask-group-1.png"
+              alt="サービスイメージ"
               fill
               style={{ objectFit: 'cover' }}
               className={styles.image}
@@ -178,11 +178,12 @@ const ServicePage = () => {
           </div>
 
           <TwoColumnSection
-            title='一括吊上げ吊下げ工法'
-            imageUrl='/images/service/about-img-1.png' /* Path from 'public' folder */
-            imageAlt='Underside of a large bridge'
-            imagePosition='right' /* Image on the right */
-            id='01'>
+            title="一括吊上げ吊下げ工法"
+            imageUrl="/images/service/about-img-1.png" /* Path from 'public' folder */
+            imageAlt="Underside of a large bridge"
+            imagePosition="right" /* Image on the right */
+            id="01"
+          >
             {/* Pass the text as children */}
             <p>
               足場を架設するなるべく近くにパーフェクトビー
@@ -199,11 +200,12 @@ const ServicePage = () => {
           </TwoColumnSection>
 
           <TwoColumnSection
-            title='ヤモリ工法'
-            imageUrl='/images/service/about-img-2.png' /* Path from 'public' folder */
-            imageAlt='City highway junction at sunset'
-            imagePosition='left' /* Image on the left */
-            id='02'>
+            title="ヤモリ工法"
+            imageUrl="/images/service/about-img-2.png" /* Path from 'public' folder */
+            imageAlt="City highway junction at sunset"
+            imagePosition="left" /* Image on the left */
+            id="02"
+          >
             <p>
               径間内に鉄道・大きな交叉点・大きな支障物があるときに
               採用する工法です。基本的には一括吊上げ吊下げ工法と
@@ -245,8 +247,8 @@ const ServicePage = () => {
             </h2>
             <div className={styles.unitImage}>
               <Image
-                src='/images/service/bridge-img1.png'
-                alt='Unit System bridge scaffolding'
+                src="/images/service/bridge-img1.png"
+                alt="Unit System bridge scaffolding"
                 fill
                 style={{ objectFit: 'cover' }}
               />

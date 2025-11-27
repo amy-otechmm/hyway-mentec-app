@@ -23,8 +23,9 @@ const Footer = () => {
               当社へのご意見、お取引に関するご相談等、お問い合わせページよりお気軽にご連絡ください。
             </p>
           </div>
-          <Link href={"/contact"} className={styles.contactButton}>
-            <span>査定面談</span> <IconArrowRight className={styles.arrow} />
+          <Link href={'/contact'} className={styles.contactButton}>
+            <span>お問い合わせ</span>{' '}
+            <IconArrowRight className={styles.arrow} />
           </Link>
         </div>
       </div>
@@ -35,16 +36,16 @@ const Footer = () => {
           <h3>クイックリンク</h3>
           <ul className={styles.linksList}>
             <li>
-              <Link href='/'>ホーム</Link>
+              <Link href="/">ホーム</Link>
             </li>
             <li>
-              <Link href='/service'>サービス</Link>
+              <Link href="/service">サービス</Link>
             </li>
             <li>
-              <Link href='/about-us'>会社概要</Link>
+              <Link href="/about-us">会社概要</Link>
             </li>
             <li>
-              <Link href='/contact'>お問い合わせ</Link>
+              <Link href="/contact">お問い合わせ</Link>
             </li>
           </ul>
         </div>
@@ -70,7 +71,7 @@ const Footer = () => {
               <span className={styles.addressIcon}>
                 <IconEmail />
               </span>
-              <a href='mailto:info@hyway-mentec.com'>info@hyway-mentec.com</a>
+              <a href="mailto:info@hyway-mentec.com">info@hyway-mentec.com</a>
             </div>
           </div>
         </div>
@@ -79,7 +80,7 @@ const Footer = () => {
       {/* ===== Bottom Copyright Section ===== */}
       <div className={styles.bottomSection}>
         © 2025 Highway-Mentec Co., Ltd. All Rights Reserved |
-        <Link href='/privacy-policy'>Privacy Policy</Link>
+        <Link href="/privacy-policy">Privacy Policy</Link>
       </div>
     </footer>
   );
