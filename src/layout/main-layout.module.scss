@@ -139,6 +139,8 @@
 
   @include mixin.md {
     flex-direction: column;
+    gap: 25px;
+    padding: 10rem;
   }
 }
 
