@@ -43,12 +43,10 @@ const AboutPage = () => {
     {
       key: '事業内容',
       value: `
-      パーフェクト工法 (仮設工業会承認の特殊工法) をもちいた足場工事<br />
-      土木工事、とび、土工、コンクリート工事、鋼構造物工事および舗装工事の企画、設計、請負および管理<br />
-      土木建築工事用機械器具および資材の販売および賃貸<br />
-      土木建築工事用の仮設建物の販売および賃貸<br />
-      電子計算機・複写機等事務用機器の販売および賃貸<br />
-      不動産の売買・仲介・賃貸および管理<br />
+      土木工事、建築工事、とび土工工事、請負および管理<br />
+      在来工法（単管、道板、クランプ）をもちいた、吊足場工事<br />
+      ユニット式（SpiderPanel, VMAX, クイックデッキ）をもちいた吊足場工事<br />
+      緊結式足場、枠組み足場をもちいた足場工事<br />
       上記に付帯する一切の業務
     `,
     },
@@ -123,8 +121,8 @@ const AboutPage = () => {
       {/* === Hero Section === */}
       <section className={styles.hero}>
         <div className={styles.topRightDots}>
-          <IconDotsGrid className='right_dots' />
-          <IconDotsGrid className='left_dots' />
+          <IconDotsGrid className="right_dots" />
+          <IconDotsGrid className="left_dots" />
         </div>
       </section>
 
@@ -140,7 +138,7 @@ const AboutPage = () => {
           {/* Scrollable Content */}
           <main className={styles.rightColumn}>
             {/* --- Speech Section --- */}
-            <section id='speech' className={styles.speechSection}>
+            <section id="speech" className={styles.speechSection}>
               <h1 className={styles.mainTitle}>スピーチ</h1>
               {/* <h1 className={styles.mainTitle}>スピーチ</h1> */}
               <h2 className={styles.subtitle}>
@@ -148,12 +146,10 @@ const AboutPage = () => {
               </h2>
 
               <div className={styles.contentGrid}>
-                <div
-                  className={styles.imageWrapper}
-                  >
+                <div className={styles.imageWrapper}>
                   <Image
-                    src='/images/about/img_company_01.jpg'
-                    alt='会社イメージ'
+                    src="/images/about/img_company_01.jpg"
+                    alt="会社イメージ"
                     width={300}
                     height={420}
                     priority
@@ -182,7 +178,7 @@ const AboutPage = () => {
             </section>
 
             {/* --- Company Profile --- */}
-            <section id='profile' className={styles.profile_section}>
+            <section id="profile" className={styles.profile_section}>
               <h1 className={styles.title}>会社概要</h1>
               <div className={styles.infoBox}>
                 <dl className={styles.infoList}>
@@ -191,7 +187,8 @@ const AboutPage = () => {
                       <dt className={styles.key}>{item.key}</dt>
                       <dd
                         className={styles.value}
-                        dangerouslySetInnerHTML={{ __html: item.value }}></dd>
+                        dangerouslySetInnerHTML={{ __html: item.value }}
+                      ></dd>
                     </div>
                   ))}
                 </dl>
@@ -199,7 +196,7 @@ const AboutPage = () => {
             </section>
 
             {/* --- History --- */}
-            <section id='history' className={styles.history_section}>
+            <section id="history" className={styles.history_section}>
               <h1 className={styles.title}>当社の歴史</h1>
               <ul className={styles.timeline}>
                 {historyData.map((item, index) => (
@@ -213,7 +210,8 @@ const AboutPage = () => {
                       delay: index * 0.1,
                       ease: 'easeOut',
                     }}
-                    viewport={{ once: true }}>
+                    viewport={{ once: true }}
+                  >
                     <div className={styles.date}>{item.date}</div>
                     <div className={styles.event}>{item.event}</div>
                   </motion.li>
@@ -222,17 +220,18 @@ const AboutPage = () => {
             </section>
 
             {/* --- Access --- */}
-            <section id='access' className={styles.access_section}>
+            <section id="access" className={styles.access_section}>
               <h1 className={styles.title}>アクセス</h1>
               <div className={styles.mapWrapper}>
                 <iframe
                   className={styles.mapFrame}
-                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.083395171788!2d136.8524450763268!3d35.15444855907471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003774616231d69%3A0xe5469f06915f0135!2z44OP44K444Km44Ko44Kk44Oz44OG44OD44KvKOOCpiki!5e0!3m2!1sen!2sjp!4v1696317789123!5m2!1sen!2sjp'
-                  width='600'
-                  height='450'
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.083395171788!2d136.8524450763268!3d35.15444855907471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003774616231d69%3A0xe5469f06915f0135!2z44OP44K444Km44Ko44Kk44Oz44OG44OD44KvKOOCpiki!5e0!3m2!1sen!2sjp!4v1696317789123!5m2!1sen!2sjp"
+                  width="600"
+                  height="450"
                   allowFullScreen={false}
-                  loading='lazy'
-                  referrerPolicy='no-referrer-when-downgrade'></iframe>
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </section>
           </main>
