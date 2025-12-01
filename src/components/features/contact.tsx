@@ -212,7 +212,7 @@ const ContactForm = () => {
         ) : (
           <div className={styles.successMessage}>
             <IconMailSuccess />
-            <h2>送信完了！</h2>
+            <h2>送信が完了しました</h2>
             <p>お問い合わせ内容を受け付けました。メールを確認してください。</p>
 
             <button
